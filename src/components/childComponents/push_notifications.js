@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import BreadCrumbs from "./helpers/breadCrumbs";
 
 class Notifications extends Component {
 
@@ -17,11 +18,16 @@ class Notifications extends Component {
 
 
     render () {
+        const items = [
+            {label:'Push Notification'},
+        ];
 
         return (
-            <div>
-                Notifications
-            </div>
+            <section className='notifications_section'>
+                <BreadCrumbs  >
+                    {items}
+                </BreadCrumbs>
+            </section>
         );
     }
 }

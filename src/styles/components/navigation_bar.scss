@@ -1,6 +1,6 @@
 .naivigation-bar {
   width: 230px;
-  height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -49,7 +49,7 @@
           display: flex;
           flex-direction: row;
           justify-content: flex-start;
-          padding: 18px;
+          padding: 10px;
 
           .main_link {
             min-height: 65px;
@@ -110,14 +110,14 @@
           padding: 0;
 
           .main_link {
-            padding: 18px;
+            padding: 10px;
           }
 
           .sub_links {
             height: 0px;
             transition: 0.5s;
             overflow: hidden;
-            padding-left: 60px;
+            padding-left: 55px;
 
             .sub-navigation-menu {
               display: flex;

@@ -85,7 +85,7 @@ class NavigationBar extends Component {
                                 <div className="icon">
                                     <img src={suppliersIcon}/>
                                 </div>
-                                <div className="text">Suppliers</div>
+                                <div className="text">Supplier Type</div>
                             </NavLink>
                         </li>
                         <li className='simple_menu'>
@@ -94,7 +94,7 @@ class NavigationBar extends Component {
                                 <div className="icon">
                                     <img src={notificationsIcon}/>
                                 </div>
-                                <div className="text">Notifications</div>
+                                <div className="text">Push Notifications</div>
                             </NavLink>
                         </li>
                     </ul>

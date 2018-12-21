@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import BreadCrumbs from "./helpers/breadCrumbs";
 class Locations extends Component {
 
     constructor ( props ) {
@@ -16,12 +17,17 @@ class Locations extends Component {
 
 
     render () {
+        const items = [
+            {label:'Locations'},
+        ];
 
 
         return (
-            <div>
-                Locations
-            </div>
+            <section className='location_section'>
+                <BreadCrumbs  >
+                    {items}
+                </BreadCrumbs>
+            </section>
         );
     }
 }

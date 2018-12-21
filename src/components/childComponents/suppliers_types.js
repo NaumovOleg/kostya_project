@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import BreadCrumbs from "./helpers/breadCrumbs";
 
 class SuppliersTypes extends Component {
 
@@ -17,11 +18,15 @@ class SuppliersTypes extends Component {
 
 
     render () {
-
+        const items = [
+            {label:'Supplier Type'},
+        ];
         return (
-            <div>
-                SuppliersTypes
-            </div>
+            <section className='suppliers_section'>
+                <BreadCrumbs  >
+                    {items}
+                </BreadCrumbs>
+            </section>
         );
     }
 }
