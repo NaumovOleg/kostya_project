@@ -1,0 +1,13 @@
+#root{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+  "Lucida Grande", "Segoe UI";
+  @import "./components/navigation_bar";
+  @import './variables';
+  @import './mixins';
+  @import './common';
+  @import './components/header';
+  @import './components/components__container';
+  @import './helpers/bread_crumbs';
+
+}
+

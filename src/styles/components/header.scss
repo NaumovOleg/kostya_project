@@ -1,0 +1,73 @@
+.header_section {
+  height: 65px;
+  background: #fff;
+  padding-right: 28px;
+  justify-content: flex-end;
+
+  .overlay {
+    width: 111px;
+    height: 32px;
+    top: 50px !important;
+
+    .p-overlaypanel-content {
+      padding: 0;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 12px;
+        height: 12px;
+      }
+
+      button {
+        background: none;
+        border: none;
+        font-size: 12px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.83;
+        letter-spacing: -0.3px;
+        color: #3f4347;
+        outline: none
+      }
+    }
+  }
+
+  .user_creds {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    span {
+
+      font-size: 14px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      margin-right: 10px;
+      color: #423c39;
+    }
+
+    img {
+      height: 30px;
+      width: 30px;
+    }
+
+    .icon {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 5px;
+    }
+
+    .transformed.icon {
+      transform: rotate(180deg);
+    }
+  }
+}
