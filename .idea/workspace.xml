@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c94bafe-f5ed-4f25-a546-c8b7945e346a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavigationBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavigationBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/childComponents/locations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/childComponents/locations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/childComponents/push_notifications.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/childComponents/push_notifications.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/childComponents/subComponents/bridge_groom.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/childComponents/subComponents/bridge_groom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/childComponents/helpers/label.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/childComponents/helpers/label.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/childComponents/subComponents/supliers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/childComponents/subComponents/supliers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/childComponents/suppliers_types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/childComponents/suppliers_types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/components/components__container.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/components__container.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/components/navigation_bar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/navigation_bar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/helpers/label.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/helpers/label.scss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,15 +19,48 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Header.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/childComponents/subComponents/supliers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="23" column="5" lean-forward="true" selection-start-line="20" selection-end-line="31" selection-end-column="5" />
+            <state relative-caret-position="225">
+              <caret line="162" column="94" selection-start-line="162" selection-start-column="94" selection-end-line="162" selection-end-column="94" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
                 <element signature="e#796#3476#0" />
                 <element signature="e#4082#4779#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/childComponents/helpers/label.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="51" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="51" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/styles/helpers/label.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="468">
+              <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -47,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/childComponents/subComponents/bridge_groom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="141" column="71" selection-start-line="141" selection-start-column="71" selection-end-line="141" selection-end-column="71" />
+            <state relative-caret-position="447">
+              <caret line="142" column="32" selection-start-line="142" selection-start-column="32" selection-end-line="142" selection-end-column="32" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
                 <element signature="e#650#911#0" />
@@ -105,12 +132,9 @@
         <option value="$PROJECT_DIR$/src/styles/common.scss" />
         <option value="$PROJECT_DIR$/src/containers/main/rootConatiner.js" />
         <option value="$PROJECT_DIR$/src/styles/components/header.scss" />
-        <option value="$PROJECT_DIR$/src/components/Header.js" />
         <option value="$PROJECT_DIR$/src/components/childComponents/users.js" />
         <option value="$PROJECT_DIR$/src/components/childComponents/helpers/breadCrumbs.js" />
         <option value="$PROJECT_DIR$/src/styles/helpers/bread_crumbs.scss" />
-        <option value="$PROJECT_DIR$/src/components/childComponents/helpers/label.js" />
-        <option value="$PROJECT_DIR$/src/styles/helpers/label.scss" />
         <option value="$PROJECT_DIR$/src/styles/components/components__container.scss" />
         <option value="$PROJECT_DIR$/src/components/childComponents/locations.js" />
         <option value="$PROJECT_DIR$/src/components/childComponents/suppliers_types.js" />
@@ -119,9 +143,12 @@
         <option value="$PROJECT_DIR$/src/styles/components/navigation_bar.scss" />
         <option value="$PROJECT_DIR$/src/styles/index.scss" />
         <option value="$PROJECT_DIR$/src/styles/custom_table.scss" />
-        <option value="$PROJECT_DIR$/src/components/childComponents/subComponents/supliers.js" />
         <option value="$PROJECT_DIR$/src/styles/components/users.scss" />
         <option value="$PROJECT_DIR$/src/components/childComponents/subComponents/bridge_groom.js" />
+        <option value="$PROJECT_DIR$/src/components/childComponents/helpers/label.js" />
+        <option value="$PROJECT_DIR$/src/styles/helpers/label.scss" />
+        <option value="$PROJECT_DIR$/src/components/Header.js" />
+        <option value="$PROJECT_DIR$/src/components/childComponents/subComponents/supliers.js" />
       </list>
     </option>
   </component>
@@ -174,6 +201,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="childComponents" type="462c0819:PsiDirectoryNode" />
+              <item name="helpers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kostya" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kostya" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="childComponents" type="462c0819:PsiDirectoryNode" />
               <item name="subComponents" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -199,6 +234,13 @@
               <item name="kostya" type="b2602c69:ProjectViewProjectNode" />
               <item name="kostya" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kostya" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kostya" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="styles" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -207,6 +249,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="styles" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kostya" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kostya" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="styles" type="462c0819:PsiDirectoryNode" />
+              <item name="helpers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -258,18 +307,18 @@
       <option name="presentableId" value="Default" />
       <updated>1545389589012</updated>
       <workItem from="1545389590267" duration="14651000" />
-      <workItem from="1545420864613" duration="9123000" />
+      <workItem from="1545420864613" duration="12437000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23774000" />
+    <option name="totallyTimeSpent" value="27088000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1044" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30521876" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10015815" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -280,7 +329,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32969433" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49973643" visible="true" weight="0.36790392" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002636" side_tool="true" weight="0.36790392" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -419,37 +468,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/childComponents/helpers/label.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/childComponents/users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Header.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="53" column="68" selection-start-line="53" selection-start-column="68" selection-end-line="53" selection-end-column="68" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/helpers/label.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -535,18 +557,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/childComponents/subComponents/supliers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="20" selection-end-line="31" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <element signature="e#796#3476#0" />
-            <element signature="e#4082#4779#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/styles/components/users.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -556,8 +566,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/childComponents/subComponents/bridge_groom.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="141" column="71" selection-start-line="141" selection-start-column="71" selection-end-line="141" selection-end-column="71" />
+        <state relative-caret-position="447">
+          <caret line="142" column="32" selection-start-line="142" selection-start-column="32" selection-end-line="142" selection-end-column="32" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
             <element signature="e#650#911#0" />
@@ -569,6 +579,45 @@
             <element signature="e#2451#2679#0" />
             <element signature="e#2693#2921#0" />
             <element signature="e#2935#3163#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/childComponents/helpers/label.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="51" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/helpers/label.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/childComponents/subComponents/supliers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="162" column="94" selection-start-line="162" selection-start-column="94" selection-end-line="162" selection-end-column="94" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#796#3476#0" />
+            <element signature="e#4082#4779#0" />
           </folding>
         </state>
       </provider>

@@ -18,7 +18,7 @@ class Header extends Component {
         return (
             <section className='header_section row_conatiner'>
                 <div className="user_creds">
-                    <span class="permission">Admin</span>
+                    <span className="permission">Admin</span>
                     <img src={userImage}/>
                     <div className={this.state.iconStyle +' icon'} onClick={(e) => {
                         this.setState({

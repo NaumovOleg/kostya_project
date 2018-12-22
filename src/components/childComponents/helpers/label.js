@@ -6,15 +6,20 @@ class Label extends Component {
 
 
     render() {
-
         return (
-            <div className='up_label row_conatiner'>
-                <div className='image'>
-                    <img src={userLabel}/>
+
+            <section className='label'>
+                <div className='up_label row_conatiner'>
+                    <div className='image'>
+                        <img src={userLabel}/>
+                    </div>
+                    <div className='text'>Amount of users</div>
+                    <div className='count'>{this.props.count}</div>
                 </div>
-                <div className='text'>Amount of users</div>
-                <div className='count'>{this.props.count}</div>
-            </div>
+                <div className='additional_contents'>
+                    {this.props.children}
+                </div>
+            </section>
         );
     }
 }

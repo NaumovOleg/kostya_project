@@ -6,12 +6,22 @@ import searchIcon from '../../../images/users/ic_search@3x.png';
 import {DataTable} from 'primereact/datatable';
 import {Column} from 'primereact/column';
 import deleteIcon from '../../../images/users/ic_delete@3x.png'
+import filterIcon from '../../../images/users/ic_filter@3x.png';
+import {OverlayPanel} from "primereact/overlaypanel";
+import logOutIcon from "../../../images/header/ic_logout@3x.png";
+
 
 class Suppliers extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            filterValue: '',
+            useFilter: false
+        };
+        window.getState = () => {
+            console.log(this.state)
+        }
     }
 
     componentWillMount() {
@@ -121,13 +131,54 @@ class Suppliers extends Component {
             {label: 'Suppliers'},
         ];
 
+        const filterItems = [
+            {
+                id: 'photographer',
+                name: 'Photographer'
+            },
+            {
+                id: 'videographer',
+                name: 'Videographer'
+            },
+            {
+                id: 'beauty',
+                name: 'Beauty & Make Up'
+            },
+            {
+                id: 'Band',
+                name: 'Band'
+            },
+        ]
+
         return (
             <section className='users__suppliers_section sub_section'>
                 <BreadCrumbs>
                     {items}
                 </BreadCrumbs>
                 <div className="suppliers_container column_container flex-start">
-                    <Label count={6405}/>
+                    <Label count={6405}>
+                        <div className='filter' >
+                            <img src={filterIcon}/>
+                            <span className='text'>Filter</span>
+                            <i className="pi pi-angle-down" onClick={(e) => this.op.toggle(e)}></i>
+                            <OverlayPanel className='overlay_filter' ref={(el) => this.op = el}>
+                                {
+                                    filterItems.map(el => {
+                                        return <div key={el.id} className='item' onClick={(e) => {
+                                            this.setState({
+                                                filterValue: el.id,
+                                                useFilter: true
+                                            })
+                                            this.op.toggle(e)
+                                        }}
+                                        >{el.name}</div>
+                                    })
+                                }
+
+                            </OverlayPanel>
+
+                        </div>
+                    </Label>
                     <div className='search'>
                         <img src={searchIcon} className='search_icon'/>
                         <input placeholder='Search'></input>
