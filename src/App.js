@@ -24,7 +24,7 @@ class App extends Component {
 
     render() {
 
-        const isAuthenticated = true;
+        const isAuthenticated = false;
         const authChecking = false;
 
         const spinner = (<div className="loading">
