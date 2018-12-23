@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c94bafe-f5ed-4f25-a546-c8b7945e346a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/childComponents/locations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/childComponents/locations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/childComponents/push_notifications.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/childComponents/push_notifications.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/childComponents/suppliers_types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/childComponents/suppliers_types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/common.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/components/locations.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/locations.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/components/navigation_bar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/navigation_bar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/modals/add_new_location.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/modals/add_new_location.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/components/push_notifications.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/push_notifications.scss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,8 +30,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/styles/components/push_notifications.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="65" column="19" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="19" />
+            <state relative-caret-position="210">
+              <caret line="28" column="27" lean-forward="true" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
               <folding>
                 <element signature="e#44#54#0" />
                 <element signature="e#784#798#0" />
@@ -226,7 +219,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Less" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -263,18 +256,18 @@
       <option name="presentableId" value="Default" />
       <updated>1545389589012</updated>
       <workItem from="1545389590267" duration="14651000" />
-      <workItem from="1545420864613" duration="26008000" />
+      <workItem from="1545420864613" duration="27013000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40659000" />
+    <option name="totallyTimeSpent" value="41664000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1044" extended-state="6" />
+    <frame x="0" y="0" width="1920" height="1044" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19188192" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19188192" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -286,7 +279,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32969433" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49973643" weight="0.24344978" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49973643" visible="true" weight="0.24344978" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002636" side_tool="true" weight="0.36790392" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -636,8 +629,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/styles/components/push_notifications.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="65" column="19" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="19" />
+        <state relative-caret-position="210">
+          <caret line="28" column="27" lean-forward="true" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
           <folding>
             <element signature="e#44#54#0" />
             <element signature="e#784#798#0" />
