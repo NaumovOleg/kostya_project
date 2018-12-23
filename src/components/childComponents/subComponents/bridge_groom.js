@@ -134,15 +134,16 @@ class Bridge_groom extends Component {
                         <img src={searchIcon} className='search_icon'/>
                         <input placeholder='Search'></input>
 
-                        <DataTable className='custom_table' value={data}>
-                            <Column field="userName" header="User Name" sortable={true}/>
-                            <Column field="registerDate" header="Register Date" sortable={true}/>
-                            <Column field="email" header="Email" sortable={true}/>
-                            <Column field="weeding" header="Weeding Date" sortable={true}/>
-                            <Column field="venue" header="Weeding Venue" sortable={true}/>
-                            <Column className='remove_column' body={this.removeSell}/>
-                        </DataTable>
+
                     </div>
+                    <DataTable className='custom_table' value={data}>
+                        <Column field="userName" header="User Name" sortable={true}/>
+                        <Column field="registerDate" header="Register Date" sortable={true}/>
+                        <Column field="email" header="Email" sortable={true}/>
+                        <Column field="weeding" header="Weeding Date" sortable={true}/>
+                        <Column field="venue" header="Weeding Venue" sortable={true}/>
+                        <Column className='remove_column' body={this.removeSell}/>
+                    </DataTable>
 
 
                 </div>

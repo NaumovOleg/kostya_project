@@ -183,16 +183,17 @@ class Suppliers extends Component {
                         <img src={searchIcon} className='search_icon'/>
                         <input placeholder='Search'></input>
 
-                        <DataTable className='custom_table' value={data}>
-                            <Column field="userName" header="User Name" sortable={true}/>
-                            <Column field="registerDate" header="Register Date" sortable={true}/>
-                            <Column field="type" header="Type" sortable={true}/>
-                            <Column field="email" header="Email" sortable={true}/>
-                            <Column field="phone" header="Phone" sortable={true}/>
-                            <Column field="webSite" header="Web Site" sortable={true}/>
-                            <Column className='remove_column' body={this.removeSell}/>
-                        </DataTable>
+
                     </div>
+                    <DataTable className='custom_table' value={data}>
+                        <Column field="userName" header="User Name" sortable={true}/>
+                        <Column field="registerDate" header="Register Date" sortable={true}/>
+                        <Column field="type" header="Type" sortable={true}/>
+                        <Column field="email" header="Email" sortable={true}/>
+                        <Column field="phone" header="Phone" sortable={true}/>
+                        <Column field="webSite" header="Web Site" sortable={true}/>
+                        <Column className='remove_column' body={this.removeSell}/>
+                    </DataTable>
 
 
                 </div>

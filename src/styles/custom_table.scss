@@ -8,6 +8,7 @@
   .p-datatable-wrapper {
     table {
       thead {
+
         tr {
           margin-bottom: 10px;
 
@@ -24,11 +25,20 @@
             color: #3f4347;
             background: transparent;
             border-bottom: 1px solid #eaeaea;
-            .p-sortable-column.p-highlight a{
-              color:#000;
+
+            .p-sortable-column.p-highlight a {
+              color: #000;
             }
 
           }
+        }
+
+        .remove_column {
+          width: 60px;
+        }
+
+        .edit_column {
+          width: 60px;
         }
       }
 
@@ -41,6 +51,38 @@
             border: none;
           }
 
+        }
+
+        .remove_column .remove_icon {
+          height: 35px;
+          width: 35px;
+
+          img {
+            width: 100%;
+          }
+
+        }
+
+        .edit_column .edit_icon {
+          height: 35px;
+          width: 35px;
+
+          img {
+            width: 100%;
+          }
+
+        }
+
+        .remove_column {
+          width: 60px;
+          cursor: pointer;
+          background: #fff;
+        }
+
+        .edit_column {
+          width: 60px;
+          cursor: pointer;
+          background: #fff;
         }
 
         tr:nth-child(even) {
@@ -56,8 +98,9 @@
 
 
 }
-.p-datatable .p-sortable-column.p-highlight a{
-  color:#000;
+
+.p-datatable .p-sortable-column.p-highlight a {
+  color: #000;
 
 }
 

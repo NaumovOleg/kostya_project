@@ -6,7 +6,13 @@ class Auth extends Component {
 
     constructor ( props ) {
         super ( props );
-        this.state = {};
+        this.state = {
+            login:'',
+            password:''
+        };
+    }
+    handleClick =() =>{
+        console.log( this.state)
     }
 
     componentWillMount () {
@@ -24,9 +30,17 @@ class Auth extends Component {
                     </div>
                     <div className='text'>Sign In to Beewed Admin Panel</div>
                     <div className='sub-text'>Fill in the data below</div>
-                    <input placeholder='Login'/>
-                    <input placeholder='Password'/>
-                    <button className='submit_button'>Sign In</button>
+                    <input value={this.state.login} onChange={(el=>{
+                        this.setState({
+                            login:el.target.value
+                        })
+                    })} placeholder='Login'/>
+                    <input onChange={(el=>{
+                        this.setState({
+                            password:el.target.value
+                        })
+                    })} value={this.state.password}  placeholder='Password'/>
+                    <button onClick={this.handleClick}  className='submit_button'>Sign In</button>
                 </div>
             </section>
         );

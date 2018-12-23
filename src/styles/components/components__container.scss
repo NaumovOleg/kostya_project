@@ -1,20 +1,24 @@
-.components__container{
-  width:100%;
-  .components{
-    height:100%;
+.components__container {
+  width: 100%;
+
+  .components {
+    height: 100%;
     background: #f2f2f2;
-    padding-right:28px;
-    padding-left:28px;
-    .search{
+    padding-right: 28px;
+    padding-left: 28px;
+
+    .search {
       position: relative;
-      .search_icon{
+
+      .search_icon {
         position: absolute;
-        width:16px;
-        height:16px;
+        width: 16px;
+        height: 16px;
         top: 14px;
         left: 14px;
       }
-      input{
+
+      input {
         height: 40px;
         border-radius: 5px;
         background-color: #ffffff;
@@ -25,14 +29,15 @@
         line-height: 1.69;
         letter-spacing: -0.3px;
         color: rgba(63, 67, 71, 0.5);
-        width:100%;
-        border:none;
-        outline:none;
-        padding-left:40px;
+        width: 100%;
+        border: none;
+        outline: none;
+        padding-left: 40px;
       }
     }
-    @import './users';
 
+    @import './users';
+    @import "./locations";
     @import '../helpers/label';
 
   }

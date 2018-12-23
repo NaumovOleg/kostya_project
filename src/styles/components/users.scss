@@ -1,21 +1,6 @@
 .suppliers_container , .bride_container {
-  .p-datatable table  thead .remove_column{
-    width:60px;
-  }
-  .p-datatable table tbody  .remove_column{
-    width:60px;
-    cursor:pointer;
-    background: #fff;
-  }
 
-  .p-datatable table tbody .remove_column .remove_icon {
-    height:35px;
-    width:35px;
-    img{
-      width:100%;
-    }
 
-  }
 }
 
 .bride_container{
