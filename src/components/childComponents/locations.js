@@ -16,7 +16,17 @@ class Locations extends Component {
         this.state = {
             addLocationvisible: false,
             editLocationVisible: false,
-            editableLocation: ''
+            deleteLocationVisible:false,
+            removeLocation:{
+                name:'',
+                latitude:'',
+                longtitude:''
+            },
+            editableLocation: {
+                name:'',
+                latitude:'',
+                longtitude:''
+            }
         };
     }
 
@@ -25,7 +35,13 @@ class Locations extends Component {
     }
 
     handleRemove = (el, event) => {
-        console.log(el)
+        this.setState({
+            ...this.state,
+            deleteLocationVisible:true,
+            removeLocation:{
+                ...el
+            }
+        })
 
     };
     handleEdit = (el, event) => {
@@ -55,6 +71,15 @@ class Locations extends Component {
         this.setState({
             editLocationVisible:false
         })
+    };
+
+    confirmRemoveLocation =()=>{
+
+        console.log( this.state.removeLocation );
+        this.setState({
+            deleteLocationVisible: false,
+        })
+
     };
 
 
@@ -114,11 +139,15 @@ class Locations extends Component {
 
             },
         ];
-
-
         return (
             <section className='location_section'>
-                <Dialog className='add_new_location location_popup' header="Add New Location"
+                <Dialog className='confirm_popup custom_popup' header="Delete Location"
+                        visible={this.state.deleteLocationVisible} width="535px" height='485px' modal={true}
+                        onHide={(e) => this.setState({deleteLocationVisible: false})}>
+                    <div className='label_text'>Are you sure you want to delete this location? </div>
+                    <button onClick={this.confirmRemoveLocation} className='add_location_button location_button'>Delete</button>
+                </Dialog>
+                <Dialog className='add_new_location location_popup add_popup custom_popup' header="Add New Location"
                         visible={this.state.addLocationvisible} width="535px" height='485px' modal={true}
                         onHide={(e) => this.setState({addLocationvisible: false})}>
                     <div className='label_text'>Fill in the data below</div>
@@ -127,9 +156,7 @@ class Locations extends Component {
                     <input placeholder='Longtitude'/>
                     <button className='add_location_button location_button'>Add</button>
                 </Dialog>
-
-
-                <Dialog className='edit_new_location location_popup' header="Edit Location"
+                <Dialog className='edit_new_location location_popup custom_popup' header="Edit Location"
                         visible={this.state.editLocationVisible} width="535px" height='485px' modal={true}
                         onHide={(e) => this.setState({editLocationVisible: false})}>
                     <div className='label_text'>Fill in the data below</div>

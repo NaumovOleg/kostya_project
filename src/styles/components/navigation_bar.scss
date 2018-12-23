@@ -93,6 +93,14 @@
       }
 
       .simple_menu {
+        .header-navigation-menu {
+          .icon,.text{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+        }
+
         .header-navigation-menu:hover {
           background-color: rgba(244, 244, 243, 0.1);
         }
@@ -107,10 +115,16 @@
         a {
           display: flex;
           flex-direction: column;
+          justify-content: center;
           padding: 0;
 
           .main_link {
             padding: 10px;
+            .icon,.dropdown{
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            }
           }
 
           .sub_links {

@@ -10,7 +10,11 @@
   @import './helpers/bread_crumbs';
   @import './custom_table';
   @import './components/auth';
+  @import './modals/custom';
   @import './modals/add_new_location';
+  @import './modals/suppliers_types';
+  @import './modals/confirm_window';
+  @import './components/push_notifications';
 
   .root__container{
     min-height: 100vh;
