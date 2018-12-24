@@ -10,7 +10,7 @@ const request = axios.create({
     }
 });
 function setAuthToken(token) {
-    axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+    axios.defaults.headers.common['x-auth'] = token;
 }
 
 

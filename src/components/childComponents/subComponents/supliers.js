@@ -10,6 +10,9 @@ import filterIcon from '../../../images/users/ic_filter@3x.png';
 import {OverlayPanel} from "primereact/overlaypanel";
 import logOutIcon from "../../../images/header/ic_logout@3x.png";
 import {Paginator} from 'primereact/paginator';
+import * as actions from '../../../store/actions/index'
+import {Button} from 'primereact/button';
+import * as moment from 'moment'
 
 class Suppliers extends Component {
 
@@ -17,21 +20,24 @@ class Suppliers extends Component {
         super(props);
         this.state = {
             filterValue: '',
-            useFilter: false
+            useFilter: false,
         };
-        window.getState = () => {
-            console.log(this.state)
-        }
+
     }
 
     componentWillMount() {
+        this.props.getSuppliers();
 
+    }
+
+    componentWillUnmount() {
+        this.props.initSuppliers({amount:0, data:[]})
     }
 
     handleRemove = (el, event) => {
-        console.log(el)
+        console.log(el._id)
 
-    }
+    };
     removeSell = (rowData, column) => {
         return (
             <div className='remove_icon' onClick={this.handleRemove.bind(null, rowData)}>
@@ -39,92 +45,26 @@ class Suppliers extends Component {
             </div>
         )
 
+    };
+    getTypeSell = (rowData, column) => {
+
+        return (
+            <div className='type'>
+                {rowData.supplierType.title}
+
+            </div>
+        )
+    };
+
+    getDateSell = (rowData) => {
+        const date = moment(rowData.registerDate).format('d.mm.Y')
+        return <div>{date} </div>
     }
 
     render() {
 
-        const data = [
-            {
-                userName: 'Kathleenff Clark (Kathy)',
-                registerDate: '26.10.2018',
-                type: 'Band',
-                email: 'kathy92@gmail.com',
-                phone: '0934532332',
-                webSite: 'kathy.com'
-            },
-            {
-                userName: 'Kathleeeeen Clark (Kathy)',
-                registerDate: '26.10.2018',
-                type: 'Band',
-                email: 'kathy92@gmail.com',
-                phone: '0934532332',
-                webSite: 'kathy.com'
-            },
-            {
-                userName: 'Kathffffleen Clark (Kathy)',
-                registerDate: '26.10.2018',
-                type: 'Band',
-                email: 'kathy92@gmail.com',
-                phone: '0934532332',
-                webSite: 'kathy.com'
-            },
-            {
-                userName: 'Kathleen Clark (Kathy)',
-                registerDate: '26.10.2018',
-                type: 'Band',
-                email: 'kathy92@gmail.com',
-                phone: '0934532332',
-                webSite: 'kathy.com'
-            },
-            {
-                userName: 'Kathleen Clark (Kathy)',
-                registerDate: '26.10.2018',
-                type: 'Band',
-                email: 'kathy92@gmail.com',
-                phone: '0934532332',
-                webSite: 'kathy.com'
-            },
-            {
-                userName: 'Kathleen Clark (Kathy)',
-                registerDate: '26.10.2018',
-                type: 'Band',
-                email: 'kathy92@gmail.com',
-                phone: '0934532332',
-                webSite: 'kathy.com'
-            },
-            {
-                userName: 'Kathleen Clark (Kathy)',
-                registerDate: '26.10.2018',
-                type: 'Band',
-                email: 'kathy92@gmail.com',
-                phone: '0934532332',
-                webSite: 'kathy.com'
-            },
-            {
-                userName: 'Kathleen Clark (Kathy)',
-                registerDate: '26.10.2018',
-                type: 'Band',
-                email: 'kathy92@gmail.com',
-                phone: '0934532332',
-                webSite: 'kathy.com'
-            },
-            {
-                userName: 'Kathleen Clark (Kathy)',
-                registerDate: '26.10.2018',
-                type: 'Band',
-                email: 'kathy92@gmail.com',
-                phone: '0934532332',
-                webSite: 'kathy.com'
-            },
-            {
-                userName: 'Kathleen Clark (Kathy)',
-                registerDate: '26.10.2018',
-                type: 'Band',
-                email: 'kathy92@gmail.com',
-                phone: '0934532332',
-                webSite: 'kathy.com'
-            }
-        ];
+        const data = this.props.suppliers.data;
+        const amount = this.props.suppliers.amount;
 
         const items = [
             {label: 'Users'},
@@ -156,7 +96,7 @@ class Suppliers extends Component {
                     {items}
                 </BreadCrumbs>
                 <div className="suppliers_container column_container flex-start">
-                    <Label count={6405}>
+                    <Label count={amount}>
                         <div className='filter'>
                             <img src={filterIcon}/>
                             <span className='text'>Filter</span>
@@ -185,22 +125,24 @@ class Suppliers extends Component {
 
 
                     </div>
-                    <DataTable className='custom_table' value={data}>
-                        <Column field="userName" header="User Name" sortable={true}/>
-                        <Column field="registerDate" header="Register Date" sortable={true}/>
-                        <Column field="type" header="Type" sortable={true}/>
+                    <DataTable paginator={true} rows={10}
+                               rowsPerPageOptions={[5, 10, 20]} className='custom_table' value={data}>
+                        <Column field="name" header="User Name" sortable={true}/>
+                        <Column field="registerDate" body={this.getDateSell} header="Register Date" sortable={true}/>
+                        <Column field="type" body={this.getTypeSell} header="Type" sortable={true}/>
                         <Column field="email" header="Email" sortable={true}/>
                         <Column field="phone" header="Phone" sortable={true}/>
-                        <Column field="webSite" header="Web Site" sortable={true}/>
+                        <Column field="websiteURL" header="Web Site" sortable={true}/>
                         <Column className='remove_column' body={this.removeSell}/>
                     </DataTable>
-                    <div className='custom_paginator--container'>
-                    <Paginator className='custom_paginator' rows={10} totalRecords={1200} first={this.state.first}
-                               onPageChange={(e) => {
-                                   console.log( e )
-                                   this.setState({first: e.first})
-                               }}></Paginator>
-                    </div>
+                    {/*<div className='custom_paginator--container'>*/}
+                    {/*<Paginator className='custom_paginator' rows={10} totalRecords={1200}*/}
+                    {/*first={this.state.first}*/}
+
+                    {/*onPageChange={(e) => {*/}
+                    {/*this.setState({first: e.first})*/}
+                    {/*}}/>*/}
+                    {/*</div>*/}
 
 
                 </div>
@@ -212,12 +154,17 @@ class Suppliers extends Component {
 
 const mapStateToProps = state => {
     return {
-        ...state
+        suppliers: state.suppliers
     };
 };
 
 const mapDispatchToProps = dispatch => {
-    return {};
+    return {
+        getSuppliers: () => dispatch(actions.getSuppliers()),
+        initSuppliers: (data) => {
+            dispatch(actions.initSuppliers(data))
+        }
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Suppliers);

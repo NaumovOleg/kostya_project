@@ -13,6 +13,7 @@
           margin-bottom: 10px;
 
           th {
+            word-break: break-all;
             height: 50px;
             border: none;
             text-align: left;
@@ -47,6 +48,7 @@
           height: 50px;
 
           td {
+            word-break: break-all;
             height: 50px;
             border: none;
           }

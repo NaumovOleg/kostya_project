@@ -10,6 +10,7 @@ import { instanceOf } from 'prop-types';
 import {ProgressSpinner} from 'primereact/progressspinner';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faStroopwafel} from '@fortawesome/free-solid-svg-icons';
+import {setAuthToken } from './store/actions/axios'
 library.add(faStroopwafel);
 
 
@@ -30,17 +31,13 @@ class App extends Component {
     componentWillMount() {
         const { cookies } = this.props;
         const token =  cookies.get('BeeWedAuth__token');
-        if( token === null || token === undefined ) {
-          this.props.authStart({
-              isAuthenticated: false,
-              authChecking: false
-          })
-
-        } else {
+        if( token !==null && token !==  undefined ) {
+            setAuthToken( token );
             this.props.authStart({
                 isAuthenticated: true,
                 authChecking: false
             })
+
         }
     }
 
@@ -83,7 +80,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         authStart:(data)=>dispatch(actions.authStart(data))
-
     };
 };
 

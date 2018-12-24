@@ -2,15 +2,32 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import userImage from '../images/header/ill_photo@3x.png'
 import {OverlayPanel} from 'primereact/overlaypanel';
-import logOutIcon from '../images/header/ic_logout@3x.png'
+import logOutIcon from '../images/header/ic_logout@3x.png';
+import * as actions from '../store/actions/index'
+import {withCookies, Cookies} from 'react-cookie';
+import {instanceOf} from "prop-types";
+
 class Header extends Component {
-    state={
-        iconStyle:''
+    state = {
+        iconStyle: ''
+    };
+    static propTypes = {
+        cookies: instanceOf(Cookies).isRequired
     };
 
     componentDidMount() {
 
 
+    }
+
+    logOut = async () => {
+        const loggendOut = await this.props.logOut();
+        const {cookies} = this.props;
+        cookies.remove('BeeWedAuth__token');
+        this.props.authStart({
+            isAuthenticated: false,
+            authChecking: false
+        });
     }
 
     render() {
@@ -20,17 +37,21 @@ class Header extends Component {
                 <div className="user_creds">
                     <span className="permission">Admin</span>
                     <img src={userImage}/>
-                    <div className={this.state.iconStyle +' icon'} onClick={(e) => {
+                    <div className={this.state.iconStyle + ' icon'} onClick={(e) => {
                         this.setState({
-                            iconStyle:this.state.iconStyle===''?'transformed':''
+                            iconStyle: this.state.iconStyle === '' ? 'transformed' : ''
                         });
-                        this.op.toggle(e)}} >
+                        this.op.toggle(e)
+                    }}>
                         <i className="pi pi-angle-down"></i>
                     </div>
                 </div>
-                <OverlayPanel  className='overlay' ref={(el) => this.op = el}>
-                    <img  src={logOutIcon}/>
+                <OverlayPanel className='overlay' ref={(el) => this.op = el}>
+                    <div onClick={this.logOut}>
+                        <img src={logOutIcon}/>
                         <button>Log Out</button>
+                    </div>
+
                 </OverlayPanel>
             </section>
         );
@@ -39,16 +60,14 @@ class Header extends Component {
 
 
 const mapStateToProps = state => {
-    return {
-
-
-    };
+    return {};
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-
+        logOut: () => dispatch(actions.logOut()),
+        authStart: (data) => dispatch(actions.authStart(data))
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default withCookies(connect(mapStateToProps, mapDispatchToProps)(Header));

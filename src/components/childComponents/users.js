@@ -20,8 +20,9 @@ class Users extends Component {
     render() {
         const routes = (
             <Switch>
-                <Route path="/users/suppliers" component={Suppliers}/>
-                <Route path="/users/groom" component={Bridge_groom}/>
+                <Route path="/users/groom" component={ Bridge_groom }/>
+                <Route path="/users/suppliers" component={ Suppliers }/>
+
                 <Redirect to="/users/suppliers"/>
             </Switch>
         );
