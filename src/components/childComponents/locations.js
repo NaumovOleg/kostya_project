@@ -49,8 +49,6 @@ class Locations extends Component {
     }
 
     handleRemove = (el, event) => {
-
-        console.log(el)
         this.setState({
             ...this.state,
             deleteLocationVisible: true,
@@ -63,8 +61,6 @@ class Locations extends Component {
             editLocationVisible: true,
            editableLocation:{...el}
         });
-
-        console.log( this.state )
     };
     removeSell = (rowData, column) => {
         return (
@@ -95,13 +91,16 @@ class Locations extends Component {
             deleteLocationVisible: false,
         });
 
+        this.props.romoveLocation({
+            _id:this.state.removeLocationId
+        });
     };
     confirmAddNew = ()=>{
         this.setState({
             addLocationvisible:false
         });
         this.props.addNewLocations(this.state.newLocation)
-    }
+    };
 
     getlatitudeSell = (rowData) => {
         return <div>{rowData.location.lat}</div>
@@ -109,7 +108,6 @@ class Locations extends Component {
     getlongitudeSell = (rowData) => {
         return <div>{rowData.location.lng}</div>
     };
-
 
     render() {
         const items = [
@@ -262,6 +260,9 @@ const mapDispatchToProps = dispatch => {
         editLocation:(data)=>{
             dispatch(actions.editLocation(data))
         },
+        romoveLocation:(data)=>{
+            dispatch(actions.romoveLocation(data))
+        }
 
 
     };

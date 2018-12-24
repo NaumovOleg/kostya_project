@@ -31,7 +31,6 @@ class Bridge_groom extends Component {
 
     handleRemove = (el, event) => {
         console.log(el)
-
     };
     removeSell = (rowData, column) => {
         return (
@@ -39,7 +38,6 @@ class Bridge_groom extends Component {
                 <img src={deleteIcon}/>
             </div>
         )
-
     };
 
     getDateRegisterSell=(rowData )=>{
@@ -50,9 +48,7 @@ class Bridge_groom extends Component {
     getDateWeedingSell=(rowData )=>{
         const date =  moment( rowData.weddingDate  ).format('d.mm.Y');
         return <div>{  date } </div>
-    }
-
-
+    };
     render() {
         const items = [
             {label: 'Users'},

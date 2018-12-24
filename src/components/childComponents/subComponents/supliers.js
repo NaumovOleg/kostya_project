@@ -22,21 +22,15 @@ class Suppliers extends Component {
             filterValue: '',
             useFilter: false,
         };
-
     }
-
     componentWillMount() {
         this.props.getSuppliers();
-
     }
-
     componentWillUnmount() {
         this.props.initSuppliers({amount:0, data:[]})
     }
-
     handleRemove = (el, event) => {
         console.log(el._id)
-
     };
     removeSell = (rowData, column) => {
         return (
@@ -44,14 +38,12 @@ class Suppliers extends Component {
                 <img src={deleteIcon}/>
             </div>
         )
-
     };
     getTypeSell = (rowData, column) => {
 
         return (
             <div className='type'>
                 {rowData.supplierType.title}
-
             </div>
         )
     };
@@ -59,10 +51,8 @@ class Suppliers extends Component {
     getDateSell = (rowData) => {
         const date = moment(rowData.registerDate).format('d.mm.Y')
         return <div>{date} </div>
-    }
-
+    };
     render() {
-
         const data = this.props.suppliers.data;
         const amount = this.props.suppliers.amount;
 
@@ -88,7 +78,7 @@ class Suppliers extends Component {
                 id: 'Band',
                 name: 'Band'
             },
-        ]
+        ];
 
         return (
             <section className='users__suppliers_section sub_section'>
@@ -108,7 +98,7 @@ class Suppliers extends Component {
                                             this.setState({
                                                 filterValue: el.id,
                                                 useFilter: true
-                                            })
+                                            });
                                             this.op.toggle(e)
                                         }}
                                         >{el.name}</div>

@@ -10,7 +10,7 @@ export const initLocations = (locations) => {
 };
 
 
-export const editLocations = ( location ) => {
+export const editLocations = (location) => {
     return {
         type: actionTypes.EDIT_LOCATIONS,
         location
@@ -50,7 +50,6 @@ export const addNewLocations = (data) => dispatch => {
         `/cms/supplier/locations`,
         postData
     ).then(res => {
-        console.log(res);
         if (res.data.success) {
             dispatch(addLocations(res.data.data))
         }
@@ -70,12 +69,31 @@ export const editLocation = (data) => dispatch => {
     };
     return request.put(
         `/cms/supplier/locations`,
-
         postData
     ).then(res => {
-        console.log(res);
         if (res.data.success) {
-            dispatch(editLocations(res.data.data ))
+            dispatch(editLocations(res.data.data))
+        }
+
+    }).catch(error => {
+
+    });
+};
+
+
+export const romoveLocation = (data) => dispatch => {
+
+    return request({
+            url: `/cms/supplier/locations`,
+            method: 'DELETE',
+            data
+        }
+    ).then(res => {
+        if (res.data.success) {
+            dispatch({
+                type:actionTypes.REMOVE_LOCATIONS,
+                payload:{location:data._id}
+            })
         }
 
     }).catch(error => {

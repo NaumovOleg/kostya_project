@@ -9,6 +9,7 @@ import authReducer from './store/reducers/auth';
 import supplierReducer from './store/reducers/suppliers';
 import bridegroomReducer from './store/reducers/bridegroom';
 import locationReducer from './store/reducers/locations';
+import suppliersTypeReducer from './store/reducers/suppliersTypes'
 import index from './styles/index.scss'
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
@@ -25,7 +26,8 @@ const rootReducer = combineReducers({
     auth: authReducer,
     suppliers:supplierReducer,
     bridegroom:bridegroomReducer,
-    locations:locationReducer
+    locations:locationReducer,
+    supplierTypes:suppliersTypeReducer
 
 });
 

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import BreadCrumbs from "./helpers/breadCrumbs";
 import plusIcon from "../../images/common/ic_add@3x.png";
 import searchIcon from "../../images/users/ic_search@3x.png";
@@ -8,46 +8,49 @@ import {Column} from "primereact/column";
 import deleteIcon from "../../images/users/ic_delete@3x.png";
 import editIcon from "../../images/common/ic_edit@3x.png";
 import {Dialog} from "primereact/dialog";
+import * as actions from "../../store/actions";
 
 class SuppliersTypes extends Component {
 
-    constructor ( props ) {
-        super ( props );
+    constructor(props) {
+        super(props);
         this.state = {
-            editableType:{
-                name:'',
-                id:''
+            editableType: {
+                title: '',
+                _id: ''
             },
-            editTypeVisible:false,
-            addNewTypeVisible:false,
-            removeVisible:false,
-            removableType:{
-                name:'',
-                id:''
+            editTypeVisible: false,
+            addNewTypeVisible: false,
+            removeVisible: false,
+            removableType: {
+                _id: ''
+            },
+            newType: {
+                title: ''
             }
         };
     }
 
-    componentWillMount () {
-
+    componentWillMount() {
+        this.props.getSuppliersTypes();
     }
+
     handleRemove = (el, event) => {
         this.setState({
             ...this.state,
-            removeVisible:true,
-            removableType:{
-                ...el
-            }
+            removeVisible: true,
+            removableType: {
+                _id: el._id
+            },
         })
 
     };
     handleEdit = (el, event) => {
-        console.log(el)
         this.setState({
             editTypeVisible: true,
-            editableType: {...el}
+            editableType: {title: el.title, _id: el._id}
         })
-    }
+    };
     removeSell = (rowData, column) => {
         return (
             <div className='remove_icon' onClick={this.handleRemove.bind(null, rowData)}>
@@ -63,81 +66,79 @@ class SuppliersTypes extends Component {
         )
     };
 
-    confirmSaveEditedType=()=>{
-        console.log( this.state );
+    confirmSaveEditedType = () => {
         this.setState({
-            editLocationVisible:false
-        })
+            editTypeVisible: false
+        });
+
+        this.props.editSuppliersTypes( this.state.editableType);
     };
 
-    confirmRemoveLocation =()=>{
-
-        console.log( this.state.removableType )
-
+    confirmAddNewType = () => {
         this.setState({
-            editTypeVisible: false,
-        })
+            addNewTypeVisible: false
+        });
+        this.props.addSuppliersTypes(this.state.newType)
+    };
 
+    confirmRemoveType = () => {
+        this.setState({
+            removeVisible: false,
+        });
+        this.props.removeSuppliersTypes(this.state.removableType);
     };
 
 
-    render () {
+    render() {
         const items = [
-            {label:'Supplier Type'},
+            {label: 'Supplier Type'},
         ];
-        const data = [
-            {
-                name: 'Band',
-                id:'band'
-            },
-            {
-                name: 'Beauty & Make Up',
-                id:'beauty'
-            },
-            {
-                name: 'Photographer',
-                id:'photo'
-            },
-            {
-                name: 'Videographer',
-                id:'video'
-            }
-
-        ];
+        const data = this.props.supplierTypes;
         return (
             <section className='suppliers_section'>
                 <Dialog className='confirm_popup custom_popup' header="Delete Supplier Type"
                         visible={this.state.removeVisible} width="535px" height='485px' modal={true}
                         onHide={(e) => this.setState({removeVisible: false})}>
-                    <div className='label_text'>Are you sure you want to delete this supplier type?  </div>
-                    <button onClick={this.confirmRemoveLocation} className='add_location_button location_button'>Delete</button>
+                    <div className='label_text'>Are you sure you want to delete this supplier type?</div>
+                    <button onClick={this.confirmRemoveType}
+                            className='add_location_button location_button'>Delete
+                    </button>
                 </Dialog>
                 <Dialog className='add_new_type type_popup add_popup custom_popup' header="Add New Type"
                         visible={this.state.addNewTypeVisible} width="535px" height='485px' modal={true}
                         onHide={(e) => this.setState({addNewTypeVisible: false})}>
                     <div className='label_text'>Fill in the data below</div>
-                    <input placeholder='Type Name'/>
-                    <button className='add_location_button location_button'>Add</button>
+                    <input value={this.state.newType.title} onChange={(el) => {
+                        this.setState({
+                            newType: {
+                                ...this.state.newType,
+                                title: el.target.value
+
+                            }
+                        })
+                    }} placeholder='Type Name'/>
+                    <button onClick={this.confirmAddNewType} className='add_location_button location_button'>Add
+                    </button>
                 </Dialog>
 
-                <Dialog className='edit_new_type type_popup custom_popup' header="Edit Location"
+                <Dialog className='edit_new_type type_popup custom_popup' header="Edit Supplier Type"
                         visible={this.state.editTypeVisible} width="535px" height='485px' modal={true}
                         onHide={(e) => this.setState({editTypeVisible: false})}>
                     <div className='label_text'>Fill in the data below</div>
-                    <input onChange={el => {
+                    <input value={this.state.editableType.title} onChange={el => {
                         this.setState({
                             ...this.State,
                             editableType: {
                                 ...this.state.editableType,
-                                name: el.target.value
+                                title: el.target.value
                             }
                         })
-                    }} value={this.state.editableType.name} placeholder='Location Name'/>
+                    }} placeholder='Location Name'/>
 
-
-                    <button onClick={this.confirmSaveEditedType} className='add_location_button location_button'>Save</button>
+                    <button onClick={this.confirmSaveEditedType} className='add_location_button location_button'>Save
+                    </button>
                 </Dialog>
-                <BreadCrumbs  >
+                <BreadCrumbs>
                     {items}
                 </BreadCrumbs>
                 <div className='suppliers_type--container'>
@@ -152,7 +153,7 @@ class SuppliersTypes extends Component {
                         <input placeholder='Search'></input>
                     </div>
                     <DataTable className='custom_table' value={data}>
-                        <Column field="name" header="Name" sortable={true}/>
+                        <Column field="title" header="Name" sortable={true}/>
                         <Column className='edit_column' body={this.editSell}/>
                         <Column className='remove_column' body={this.removeSell}/>
                     </DataTable>
@@ -167,14 +168,28 @@ class SuppliersTypes extends Component {
 
 const mapStateToProps = state => {
     return {
-        ...state
+        supplierTypes: state.supplierTypes
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
 
+        getSuppliersTypes: () => {
+            dispatch(actions.getSuppliersTypes())
+        },
+        addSuppliersTypes: (data) => {
+            dispatch(actions.addSuppliersTypes(data))
+        },
+        removeSuppliersTypes: (data) => {
+            dispatch(actions.removeSuppliersTypes(data))
+        },
+        editSuppliersTypes: (data) => {
+            dispatch(actions.editSuppliersTypes(data))
+        }
+
+
     };
 };
 
-export default connect ( mapStateToProps, mapDispatchToProps ) ( SuppliersTypes ) ;
+export default connect(mapStateToProps, mapDispatchToProps)(SuppliersTypes);

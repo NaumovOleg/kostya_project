@@ -5,34 +5,33 @@ const initialState = [];
 const reducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case actionTypes.GET_LOCATIONS:
+        case actionTypes.INIT_SUPPLIERS_TYPE:
             return [
-                ...action.locations
+                ...action.types
             ];
-        case actionTypes.ADD_LOCATIONS:
+        case actionTypes.ADD_SUPPLIERS_TYPE:
             return [
                 ...state,
-                action.location
+                action.types
             ];
-        case actionTypes.EDIT_LOCATIONS:
+        case actionTypes.EDIT_SUPPLIERS_TYPE:
             let  editedindex = -1;
             state.map( (el,index) =>{
-                if( el._id === action.location._id ){
+                if( el._id === action.types._id ){
                     editedindex = index;
                     return;
 
                 }
             });
             if( editedindex>-1){
-                state[editedindex] = {...action.location}
+                state[editedindex] = {...action.types}
             }
-
             return [...state];
 
-        case actionTypes.REMOVE_LOCATIONS:
+        case actionTypes.DELETE_SUPPLIERS_TYPE:
             let  removedIndex = -1;
             state.map( (el,index) =>{
-                if( el._id === action.payload.location ){
+                if( el._id === action.types._id ){
                     removedIndex = index;
                     return;
 
