@@ -1,16 +1,17 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-
+    isAuthenticated: false,
+    authChecking: false
 };
 
-const reducer = ( state = initialState, action ) => {
+const reducer = (state = initialState, action) => {
 
-    switch ( action.type ) {
-        case actionTypes.AUTH_START:
+    switch (action.type) {
+        case actionTypes.AUTH_CHECK:
             return {
                 ...state,
-                loading: true,
+                ...action.data
             };
 
         default:

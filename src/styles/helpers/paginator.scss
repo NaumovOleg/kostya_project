@@ -1,0 +1,25 @@
+.custom_paginator--container{
+  .custom_paginator{
+    border: none;
+    height:40px;
+    width:280px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    .p-paginator-first,.p-paginator-last{
+      display: none;
+    }
+    a{
+      height:40px;
+      width:40px;
+      margin:0 1px;
+      background: #fff;
+
+    }
+    .p-paginator-pages{
+      display:flex;
+      height:40px;
+    }
+  }
+
+}

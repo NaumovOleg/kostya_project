@@ -1,9 +1,9 @@
-const {authCheck} = require('./auth');
+const { login,authStart } = require('./auth');
 
 export {
 
 
-    authCheck,
+   login,authStart
 
 
 };

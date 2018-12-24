@@ -9,7 +9,7 @@ import deleteIcon from '../../../images/users/ic_delete@3x.png'
 import filterIcon from '../../../images/users/ic_filter@3x.png';
 import {OverlayPanel} from "primereact/overlaypanel";
 import logOutIcon from "../../../images/header/ic_logout@3x.png";
-
+import {Paginator} from 'primereact/paginator';
 
 class Suppliers extends Component {
 
@@ -157,7 +157,7 @@ class Suppliers extends Component {
                 </BreadCrumbs>
                 <div className="suppliers_container column_container flex-start">
                     <Label count={6405}>
-                        <div className='filter' >
+                        <div className='filter'>
                             <img src={filterIcon}/>
                             <span className='text'>Filter</span>
                             <i className="pi pi-angle-down" onClick={(e) => this.op.toggle(e)}></i>
@@ -194,6 +194,13 @@ class Suppliers extends Component {
                         <Column field="webSite" header="Web Site" sortable={true}/>
                         <Column className='remove_column' body={this.removeSell}/>
                     </DataTable>
+                    <div className='custom_paginator--container'>
+                    <Paginator className='custom_paginator' rows={10} totalRecords={1200} first={this.state.first}
+                               onPageChange={(e) => {
+                                   console.log( e )
+                                   this.setState({first: e.first})
+                               }}></Paginator>
+                    </div>
 
 
                 </div>

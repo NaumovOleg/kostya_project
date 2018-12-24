@@ -15,6 +15,7 @@
   @import './modals/suppliers_types';
   @import './modals/confirm_window';
   @import './components/push_notifications';
+  @import './helpers/paginator';
 
   .root__container{
     min-height: 100vh;

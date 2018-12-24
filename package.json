@@ -2,9 +2,8 @@
   "name": "kostya",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:7777/",
+  "proxy": "https://serene-waters-78929.herokuapp.com/",
   "dependencies": {
-
     "@fortawesome/fontawesome-svg-core": "^1.2.2",
     "@fortawesome/free-solid-svg-icons": "^5.2.0",
     "@fortawesome/react-fontawesome": "^0.1.2",
