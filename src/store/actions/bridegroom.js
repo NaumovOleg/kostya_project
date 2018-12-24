@@ -17,7 +17,6 @@ export const getBrideGroom = () => dispatch => {
         const response = res.data;
         if (response.success) {
             const bride = response.data.users;
-            console.log({data: bride, amount: response.data.amount});
             dispatch(initBrideGroom({data:bride, amount:response.data.amount}));
         }
 

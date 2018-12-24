@@ -54,11 +54,9 @@ class Bridge_groom extends Component {
             {label: 'Users'},
             {label: 'Bride & Groom'},
         ];
-
         const data = this.props.bridegroom.data;
         const amount  = this.props.bridegroom.amount;
         return (
-
             <section className='users__bridge-section sub_section'>
                 <BreadCrumbs>
                     {items}
@@ -68,8 +66,6 @@ class Bridge_groom extends Component {
                     <div className='search'>
                         <img src={searchIcon} className='search_icon'/>
                         <input placeholder='Search'></input>
-
-
                     </div>
                     <DataTable paginator={true}  rows={10}
                                rowsPerPageOptions={[5, 10, 20]} className='custom_table' value={data}>
@@ -80,8 +76,6 @@ class Bridge_groom extends Component {
                         <Column field="weddingVenue" header="Weeding Venue" sortable={true}/>
                         <Column className='remove_column' body={this.removeSell}/>
                     </DataTable>
-
-
                 </div>
             </section>
         );

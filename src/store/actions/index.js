@@ -15,17 +15,14 @@ export {
     deleteSuppliersType,
     initSuppliers,
 
-
     getBrideGroom,
     initBrideGroom,
-
 
     getLocations,
     addNewLocations,
     editLocation,
     initLocations,
     romoveLocation,
-
 
     getSuppliersTypes,
     addSuppliersTypes,

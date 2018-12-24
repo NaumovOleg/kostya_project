@@ -7,7 +7,8 @@ import Header from '../../components/Header';
 import Users from '../../components/childComponents/users';
 import Locations from '../../components/childComponents/locations';
 import Notifications from '../../components/childComponents/push_notifications';
-import SuppliersTypes from '../../components/childComponents/suppliers_types'
+import SuppliersTypes from '../../components/childComponents/suppliers_types';
+import * as actions from  '../../store/actions/index'
 
 class RootConatiner extends Component {
 
@@ -17,6 +18,7 @@ class RootConatiner extends Component {
     }
 
     componentWillMount() {
+        this.props.getSuppliersTypes();
 
     }
 
@@ -24,14 +26,12 @@ class RootConatiner extends Component {
     render() {
 
         const routes = (
-
             <Switch>
                 {/* <Route path="/auth" component={Auth} /> */}
                 <Route path="/users" component={Users}/>
                 <Route path="/locations" component={Locations}/>
                 <Route path="/suppliers" component={SuppliersTypes}/>
                 <Route path="/notifications" component={Notifications}/>
-
                 <Redirect to="/users"/>
             </Switch>
         );
@@ -41,9 +41,7 @@ class RootConatiner extends Component {
                 <section className='components__container column_container' >
                     <Header/>
                     <div className='components'>
-
                         {routes}
-
                     </div>
                 </section>
             </section>
@@ -59,7 +57,11 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-    return {};
+    return {
+        getSuppliersTypes: () => {
+            dispatch(actions.getSuppliersTypes())
+        },
+    };
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(RootConatiner));

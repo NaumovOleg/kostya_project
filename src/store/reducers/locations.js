@@ -20,31 +20,25 @@ const reducer = (state = initialState, action) => {
                 if( el._id === action.location._id ){
                     editedindex = index;
                     return;
-
                 }
             });
             if( editedindex>-1){
                 state[editedindex] = {...action.location}
             }
-
             return [...state];
-
         case actionTypes.REMOVE_LOCATIONS:
             let  removedIndex = -1;
             state.map( (el,index) =>{
                 if( el._id === action.payload.location ){
                     removedIndex = index;
                     return;
-
                 }
             });
             if( removedIndex>-1){
-
                 state.splice(removedIndex,1)
             }
 
             return [...state];
-
         default:
             return state;
     }

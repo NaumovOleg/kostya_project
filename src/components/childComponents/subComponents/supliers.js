@@ -23,12 +23,15 @@ class Suppliers extends Component {
             useFilter: false,
         };
     }
+
     componentWillMount() {
         this.props.getSuppliers();
     }
+
     componentWillUnmount() {
-        this.props.initSuppliers({amount:0, data:[]})
+        this.props.initSuppliers({amount: 0, data: []})
     }
+
     handleRemove = (el, event) => {
         console.log(el._id)
     };
@@ -52,9 +55,13 @@ class Suppliers extends Component {
         const date = moment(rowData.registerDate).format('d.mm.Y')
         return <div>{date} </div>
     };
+
     render() {
         const data = this.props.suppliers.data;
         const amount = this.props.suppliers.amount;
+        const types = this.props.supplierTypes;
+        console.log( types )
+
 
         const items = [
             {label: 'Users'},
@@ -93,15 +100,15 @@ class Suppliers extends Component {
                             <i className="pi pi-angle-down" onClick={(e) => this.op.toggle(e)}></i>
                             <OverlayPanel className='overlay_filter' ref={(el) => this.op = el}>
                                 {
-                                    filterItems.map(el => {
+                                    types.map(el => {
                                         return <div key={el.id} className='item' onClick={(e) => {
                                             this.setState({
-                                                filterValue: el.id,
+                                                filterValue: el._id,
                                                 useFilter: true
                                             });
                                             this.op.toggle(e)
                                         }}
-                                        >{el.name}</div>
+                                        >{el.title}</div>
                                     })
                                 }
 
@@ -112,8 +119,6 @@ class Suppliers extends Component {
                     <div className='search'>
                         <img src={searchIcon} className='search_icon'/>
                         <input placeholder='Search'></input>
-
-
                     </div>
                     <DataTable paginator={true} rows={10}
                                rowsPerPageOptions={[5, 10, 20]} className='custom_table' value={data}>
@@ -125,16 +130,6 @@ class Suppliers extends Component {
                         <Column field="websiteURL" header="Web Site" sortable={true}/>
                         <Column className='remove_column' body={this.removeSell}/>
                     </DataTable>
-                    {/*<div className='custom_paginator--container'>*/}
-                    {/*<Paginator className='custom_paginator' rows={10} totalRecords={1200}*/}
-                    {/*first={this.state.first}*/}
-
-                    {/*onPageChange={(e) => {*/}
-                    {/*this.setState({first: e.first})*/}
-                    {/*}}/>*/}
-                    {/*</div>*/}
-
-
                 </div>
             </section>
         );
@@ -144,7 +139,9 @@ class Suppliers extends Component {
 
 const mapStateToProps = state => {
     return {
-        suppliers: state.suppliers
+        suppliers: state.suppliers,
+        supplierTypes: state.supplierTypes
+
     };
 };
 

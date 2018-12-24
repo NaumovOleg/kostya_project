@@ -27,8 +27,6 @@ export const login = (data) => dispatch => {
         } else {
             throw new Error('Authentification failed ')
         }
-
-
     } ).catch ( error => {
         return error
     } );
@@ -47,7 +45,6 @@ export const logOut = () => dispatch => {
        return {
            result:'signed out'
        }
-
     } ).catch ( error => {
         return {
             error:true,

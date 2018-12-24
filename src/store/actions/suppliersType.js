@@ -41,9 +41,7 @@ export const getSuppliersTypes = () => dispatch => {
             const types = res.data.data;
             dispatch(initTypes(types))
         }
-    }).catch(error => {
-
-    });
+    }).catch(error => {});
 };
 export const addSuppliersTypes = (data) => dispatch => {
     return request({
@@ -55,9 +53,7 @@ export const addSuppliersTypes = (data) => dispatch => {
             const types = res.data.data;
             dispatch(addTypes(types))
         }
-    }).catch(error => {
-
-    });
+    }).catch(error => {});
 };
 
 export const removeSuppliersTypes = (data) => dispatch => {
@@ -73,9 +69,7 @@ export const removeSuppliersTypes = (data) => dispatch => {
             }
 
         }
-    }).catch(error => {
-
-    });
+    }).catch(error => {});
 };
 
 export const editSuppliersTypes = (data) => dispatch => {
@@ -90,9 +84,7 @@ export const editSuppliersTypes = (data) => dispatch => {
             }
 
         }
-    }).catch(error => {
-
-    });
+    }).catch(error => {});
 };
 
 

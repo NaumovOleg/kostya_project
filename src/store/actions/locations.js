@@ -35,9 +35,7 @@ export const getLocations = () => dispatch => {
             console.log(locations);
             dispatch(initLocations(locations))
         }
-    }).catch(error => {
-
-    });
+    }).catch(error => {});
 };
 
 export const addNewLocations = (data) => dispatch => {
@@ -82,7 +80,6 @@ export const editLocation = (data) => dispatch => {
 
 
 export const romoveLocation = (data) => dispatch => {
-
     return request({
             url: `/cms/supplier/locations`,
             method: 'DELETE',
@@ -95,8 +92,5 @@ export const romoveLocation = (data) => dispatch => {
                 payload:{location:data._id}
             })
         }
-
-    }).catch(error => {
-
-    });
+    }).catch(error => {});
 };

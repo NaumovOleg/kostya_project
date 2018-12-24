@@ -11,12 +11,7 @@ class Users extends Component {
         super(props);
         this.state = {};
     }
-
-    componentWillMount() {
-
-    }
-
-
+    componentWillMount() {}
     render() {
         const routes = (
             <Switch>
@@ -26,12 +21,10 @@ class Users extends Component {
                 <Redirect to="/users/suppliers"/>
             </Switch>
         );
-
         return (
             <section className='users_section'>
                 {routes}
             </section>
-
         );
     }
 }

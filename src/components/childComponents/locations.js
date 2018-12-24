@@ -33,7 +33,6 @@ class Locations extends Component {
                     "lat": "",
                     "lng": ""
                 },
-
             }
         };
     }
@@ -43,9 +42,7 @@ class Locations extends Component {
     }
 
     componentWillMount() {
-
         this.props.initLocations();
-
     }
 
     handleRemove = (el, event) => {
@@ -77,7 +74,6 @@ class Locations extends Component {
         )
     };
     confirmSaveEditedLocation = () => {
-
         this.setState({
             editLocationVisible: false
         });
@@ -149,7 +145,6 @@ class Locations extends Component {
                                 }
                             }
                         })
-
                     }} value={this.state.newLocation.location.lat} placeholder='Latitude'/>
                     <input onChange={(el) => {
 
@@ -162,7 +157,6 @@ class Locations extends Component {
                                 }
                             }
                         })
-
                     }} value={this.state.newLocation.location.lng} placeholder='Longtitude'/>
                     <button onClick={this.confirmAddNew}
                             className='add_location_button location_button'>Add
@@ -221,7 +215,6 @@ class Locations extends Component {
                         <img className='plus_image' src={plusIcon}></img>
                         <span className='text'>Add New Location</span>.
                     </button>
-
                     <div className='search'>
                         <img src={searchIcon} className='search_icon'/>
                         <input placeholder='Search'></input>
@@ -233,10 +226,7 @@ class Locations extends Component {
                         <Column className='edit_column' body={this.editSell}/>
                         <Column className='remove_column' body={this.removeSell}/>
                     </DataTable>
-
-
                 </div>
-
             </section>
         );
     }

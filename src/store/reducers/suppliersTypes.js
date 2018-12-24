@@ -34,16 +34,12 @@ const reducer = (state = initialState, action) => {
                 if( el._id === action.types._id ){
                     removedIndex = index;
                     return;
-
                 }
             });
             if( removedIndex>-1){
-
                 state.splice(removedIndex,1)
             }
-
             return [...state];
-
         default:
             return state;
     }

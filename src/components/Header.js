@@ -15,10 +15,7 @@ class Header extends Component {
         cookies: instanceOf(Cookies).isRequired
     };
 
-    componentDidMount() {
-
-
-    }
+    componentDidMount() {}
 
     logOut = async () => {
         const loggendOut = await this.props.logOut();
@@ -28,10 +25,8 @@ class Header extends Component {
             isAuthenticated: false,
             authChecking: false
         });
-    }
-
+    };
     render() {
-
         return (
             <section className='header_section row_conatiner'>
                 <div className="user_creds">
@@ -51,7 +46,6 @@ class Header extends Component {
                         <img src={logOutIcon}/>
                         <button>Log Out</button>
                     </div>
-
                 </OverlayPanel>
             </section>
         );

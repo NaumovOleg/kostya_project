@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { withRouter, NavLink} from 'react-router-dom';
+import {withRouter, NavLink} from 'react-router-dom';
 
 import {connect} from 'react-redux';
 import logo from '../images/Logo@3x.png'
@@ -24,31 +24,24 @@ class NavigationBar extends Component {
                     <div className="logo_menu">
                         <i className="pi pi-bars"></i>
                     </div>
-
                 </div>
                 <div className="nav_menu">
                     <ul>
                         <li className='width_sub-menu'>
                             <NavLink className="header-navigation-menu" activeClassName="header-navigation__selected"
                                      to="/users">
-
                                 <div className='main_link'>
                                     <div className="icon">
                                         <img src={userIcon}/>
-
                                     </div>
                                     <div className="dropdown">
                                         <div className="text">
-                                    <span>
-                                         Users
-                                    </span>
+                                            <span>
+                                                 Users
+                                            </span>
                                         </div>
-
-
                                     </div>
                                 </div>
-
-
                                 <div className='sub_links'>
                                     <NavLink className="sub-navigation-menu"
                                              activeClassName="sub-navigation__selected"
@@ -57,7 +50,6 @@ class NavigationBar extends Component {
 
                                         <div className="text"> Suppliers</div>
                                     </NavLink>
-
                                     <NavLink className="sub-navigation-menu"
                                              activeClassName="sub-navigation__selected"
                                              to="/users/groom">
@@ -65,10 +57,7 @@ class NavigationBar extends Component {
                                         <div className="text">Bride & Groom</div>
                                     </NavLink>
                                 </div>
-
                             </NavLink>
-
-
                         </li>
                         <li className='simple_menu'>
                             <NavLink className="header-navigation-menu" activeClassName="header-navigation__selected"

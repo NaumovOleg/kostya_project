@@ -8,15 +8,7 @@ class Notifications extends Component {
         super ( props );
         this.state = {};
     }
-
-    componentWillMount () {
-
-    }
-
-
-
-
-
+    componentWillMount () {}
     render () {
         const items = [
             {label:'Push Notification'},

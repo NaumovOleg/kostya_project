@@ -18,30 +18,22 @@ class Auth extends Component {
         };
     }
     handleClick = async () =>{
-
         const auth = await this.props.login( this.state );
         if( auth.success ){
             const { cookies } = this.props;
             cookies.set('BeeWedAuth__token', auth.token, { path: '/' });
-        } else {
-
-        }
-
-
-    }
+        } else {}
+    };
 
     componentWillMount () {
 
     }
     render () {
-
-
         return (
             <section className='auth_section'>
                 <div className='auth_component'>
                     <div className='logo'>
                         <img src={logoImage}/>
-
                     </div>
                     <div className='text'>Sign In to Beewed Admin Panel</div>
                     <div className='sub-text'>Fill in the data below</div>
@@ -62,14 +54,11 @@ class Auth extends Component {
         );
     }
 }
-
-
 const mapStateToProps = state => {
     return {
         ...state
     };
 };
-
 const mapDispatchToProps = dispatch => {
     return {
         login:(data)=>dispatch(  actions.login(data)  )

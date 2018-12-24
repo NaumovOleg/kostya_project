@@ -13,7 +13,6 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 ...action.data
             };
-
         default:
             return state;
     }

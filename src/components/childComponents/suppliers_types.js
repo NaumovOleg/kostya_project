@@ -30,9 +30,8 @@ class SuppliersTypes extends Component {
             }
         };
     }
-
     componentWillMount() {
-        this.props.getSuppliersTypes();
+        // this.props.getSuppliersTypes();
     }
 
     handleRemove = (el, event) => {
@@ -43,7 +42,6 @@ class SuppliersTypes extends Component {
                 _id: el._id
             },
         })
-
     };
     handleEdit = (el, event) => {
         this.setState({
@@ -65,7 +63,6 @@ class SuppliersTypes extends Component {
             </div>
         )
     };
-
     confirmSaveEditedType = () => {
         this.setState({
             editTypeVisible: false
@@ -73,22 +70,18 @@ class SuppliersTypes extends Component {
 
         this.props.editSuppliersTypes( this.state.editableType);
     };
-
     confirmAddNewType = () => {
         this.setState({
             addNewTypeVisible: false
         });
         this.props.addSuppliersTypes(this.state.newType)
     };
-
     confirmRemoveType = () => {
         this.setState({
             removeVisible: false,
         });
         this.props.removeSuppliersTypes(this.state.removableType);
     };
-
-
     render() {
         const items = [
             {label: 'Supplier Type'},
@@ -157,8 +150,6 @@ class SuppliersTypes extends Component {
                         <Column className='edit_column' body={this.editSell}/>
                         <Column className='remove_column' body={this.removeSell}/>
                     </DataTable>
-
-
                 </div>
             </section>
         );
@@ -175,9 +166,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
 
-        getSuppliersTypes: () => {
-            dispatch(actions.getSuppliersTypes())
-        },
+        // getSuppliersTypes: () => {
+        //     dispatch(actions.getSuppliersTypes())
+        // },
         addSuppliersTypes: (data) => {
             dispatch(actions.addSuppliersTypes(data))
         },

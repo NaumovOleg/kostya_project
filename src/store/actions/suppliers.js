@@ -3,7 +3,6 @@ import * as actionTypes from './actionTypes';
 import {request} from '../actions/axios'
 
 export const initSuppliers = ( data ) => {
-    console.log( data );
     return {
         type: actionTypes.GET_SUPPLIERS,
         data
@@ -21,9 +20,7 @@ export const getSuppliers = () => dispatch => {
             dispatch(initSuppliers( {data:suppliers,amount:response.data.amount} ));
         }
 
-    } ).catch ( error => {
-
-    } );
+    } ).catch ( error => {} );
 };
 
 export const deleteSuppliersType = ( data ) => dispatch => {
@@ -35,9 +32,7 @@ export const deleteSuppliersType = ( data ) => dispatch => {
         const response  = res.data;
 
 
-    } ).catch ( error => {
-
-    } );
+    } ).catch ( error => {} );
 };
 
 export const putSuppliersType = ( data ) => dispatch => {
@@ -49,8 +44,6 @@ export const putSuppliersType = ( data ) => dispatch => {
         const response  = res.data;
 
 
-    } ).catch ( error => {
-
-    } );
+    } ).catch ( error => {} );
 };
 

@@ -12,8 +12,6 @@ import {library} from '@fortawesome/fontawesome-svg-core';
 import {faStroopwafel} from '@fortawesome/free-solid-svg-icons';
 import {setAuthToken } from './store/actions/axios'
 library.add(faStroopwafel);
-
-
 class App extends Component {
     static propTypes = {
         cookies: instanceOf(Cookies).isRequired

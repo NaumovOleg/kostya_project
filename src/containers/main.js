@@ -11,8 +11,6 @@ class Main extends Component {
         this.state = {
         };
     }
-
-
     render () {
         const routes = (
             <Switch>
@@ -20,7 +18,6 @@ class Main extends Component {
                 <Redirect to="/"/>
             </Switch>
         );
-
         return (
             <div>
                 {routes}
@@ -28,19 +25,12 @@ class Main extends Component {
         );
     }
 }
-
-
 const mapStateToProps = state => {
     return {
         ...state
     };
 };
-
 const mapDispatchToProps = dispatch => {
-    return {
-
-
-    };
+    return {};
 };
-
 export default withRouter ( connect ( mapStateToProps, mapDispatchToProps ) ( Main ) );
