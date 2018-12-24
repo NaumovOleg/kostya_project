@@ -1,6 +1,7 @@
 const {login, authStart, logOut} = require('./auth');
 const {getSuppliers, initSuppliers, deleteSuppliersType, putSuppliersType} = require('./suppliers');
 const {getBrideGroom,initBrideGroom} = require('./bridegroom');
+const  { getLocations,addNewLocations,editLocation,initLocations }  = require ( './locations' );
 export {
 
 
@@ -15,7 +16,13 @@ export {
 
 
     getBrideGroom,
-    initBrideGroom
+    initBrideGroom,
+
+
+    getLocations,
+    addNewLocations,
+    editLocation,
+    initLocations
 
 
 };

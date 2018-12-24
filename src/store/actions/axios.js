@@ -6,6 +6,7 @@ const request = axios.create({
     headers: {
         'Access-Control-Allow-Origin': 'https://serene-waters-78929.herokuapp.com',
         'Access-Control-Allow-Methods':'*',
+        'Content-Type': 'application/json; charset=utf-8'
 
     }
 });

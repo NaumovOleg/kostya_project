@@ -7,7 +7,8 @@ import {BrowserRouter} from 'react-router-dom';
 import {CookiesProvider} from 'react-cookie';
 import authReducer from './store/reducers/auth';
 import supplierReducer from './store/reducers/suppliers';
-import bridegroomReducer from './store/reducers/bridegroom'
+import bridegroomReducer from './store/reducers/bridegroom';
+import locationReducer from './store/reducers/locations';
 import index from './styles/index.scss'
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
@@ -23,7 +24,8 @@ import './styles/index.scss';
 const rootReducer = combineReducers({
     auth: authReducer,
     suppliers:supplierReducer,
-    bridegroom:bridegroomReducer
+    bridegroom:bridegroomReducer,
+    locations:locationReducer
 
 });
 
