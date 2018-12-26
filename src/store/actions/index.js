@@ -15,6 +15,7 @@ export {
     deleteSuppliersType,
     initSuppliers,
 
+
     getBrideGroom,
     initBrideGroom,
 

@@ -56,49 +56,57 @@ class Suppliers extends Component {
         return <div>{date} </div>
     };
 
+    apllyFilter = ()=>{
+        let suppliers = {
+            amount:0,
+            data:[]
+        };
+        if( this.state.useFilter ){
+            this.props.suppliers.data.map(el =>{
+                if( el.supplierType._id  === this.state.filterValue ){
+                    suppliers.amount++;
+                    suppliers.data.push( el )
+                }
+            });
+
+            console.log( suppliers );
+
+            return suppliers;
+
+        } else {
+            return this.props.suppliers
+        }
+
+    };
+
     render() {
-        const data = this.props.suppliers.data;
-        const amount = this.props.suppliers.amount;
+        const suppliers = this.apllyFilter();
         const types = this.props.supplierTypes;
-        console.log( types )
-
-
         const items = [
             {label: 'Users'},
             {label: 'Suppliers'},
         ];
-
-        const filterItems = [
-            {
-                id: 'photographer',
-                name: 'Photographer'
-            },
-            {
-                id: 'videographer',
-                name: 'Videographer'
-            },
-            {
-                id: 'beauty',
-                name: 'Beauty & Make Up'
-            },
-            {
-                id: 'Band',
-                name: 'Band'
-            },
-        ];
-
         return (
             <section className='users__suppliers_section sub_section'>
                 <BreadCrumbs>
                     {items}
                 </BreadCrumbs>
                 <div className="suppliers_container column_container flex-start">
-                    <Label count={amount}>
+                    <Label count={suppliers.amount}>
                         <div className='filter'>
                             <img src={filterIcon}/>
                             <span className='text'>Filter</span>
                             <i className="pi pi-angle-down" onClick={(e) => this.op.toggle(e)}></i>
                             <OverlayPanel className='overlay_filter' ref={(el) => this.op = el}>
+                                <div  className='item' onClick={(e) => {
+                                    this.setState({
+                                        useFilter: false
+                                    });
+                                    this.op.toggle(e);
+                                    this.apllyFilter(  )
+
+                                }}
+                                >none</div>
                                 {
                                     types.map(el => {
                                         return <div key={el.id} className='item' onClick={(e) => {
@@ -106,7 +114,10 @@ class Suppliers extends Component {
                                                 filterValue: el._id,
                                                 useFilter: true
                                             });
-                                            this.op.toggle(e)
+                                            this.op.toggle(e);
+
+                                            this.apllyFilter( el._id )
+
                                         }}
                                         >{el.title}</div>
                                     })
@@ -120,12 +131,12 @@ class Suppliers extends Component {
                         <img src={searchIcon} className='search_icon'/>
                         <input placeholder='Search'></input>
                     </div>
-                    <DataTable paginator={true} rows={10}
-                               rowsPerPageOptions={[5, 10, 20]} className='custom_table' value={data}>
+                    <DataTable responsive={true} paginator={true} rows={10}
+                               rowsPerPageOptions={[5, 10, 20]} className='custom_table' value={suppliers.data}>
                         <Column field="name" header="User Name" sortable={true}/>
-                        <Column field="registerDate" body={this.getDateSell} header="Register Date" sortable={true}/>
+                        <Column className='register_date' field="registerDate" body={this.getDateSell} header="Register Date" sortable={true}/>
                         <Column field="type" body={this.getTypeSell} header="Type" sortable={true}/>
-                        <Column field="email" header="Email" sortable={true}/>
+                        <Column  field="email" header="Email" sortable={true}/>
                         <Column field="phone" header="Phone" sortable={true}/>
                         <Column field="websiteURL" header="Web Site" sortable={true}/>
                         <Column className='remove_column' body={this.removeSell}/>
