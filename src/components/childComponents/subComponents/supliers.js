@@ -13,28 +13,50 @@ import {Paginator} from 'primereact/paginator';
 import * as actions from '../../../store/actions/index'
 import {Button} from 'primereact/button';
 import * as moment from 'moment'
+import {Dialog} from "primereact/dialog";
 
 class Suppliers extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            filterValue: '',
             useFilter: false,
+            deleteSupplier: '',
+            params:{
+                supplierType:'',
+                page:1,
+                searchText:''
+            }
         };
     }
 
     componentWillMount() {
-        this.props.getSuppliers();
+        this.props.getSuppliers( {page:1});
     }
 
     componentWillUnmount() {
-        this.props.initSuppliers({amount: 0, data: []})
+        this.props.initSuppliers({count:0, amount: 0, data: []})
     }
 
     handleRemove = (el, event) => {
-        console.log(el._id)
+        this.setState({
+            deleteSupplierVisible: true,
+            deleteSupplier: el._id
+        })
     };
+
+    confirmRemoveSupplier = () => {
+        const {deleteSupplier} = this.state;
+        this.setState({
+            deleteSupplierVisible: false,
+            deleteSupplier: ''
+        });
+
+        this.props.deleteUser(deleteSupplier, 'supplier');
+
+    };
+
+
     removeSell = (rowData, column) => {
         return (
             <div className='remove_icon' onClick={this.handleRemove.bind(null, rowData)}>
@@ -52,35 +74,27 @@ class Suppliers extends Component {
     };
 
     getDateSell = (rowData) => {
-        const date = moment(rowData.registerDate).format('d.mm.Y')
+        const date = moment(rowData.registerDate).format('d.mm.Y');
         return <div>{date} </div>
     };
 
-    apllyFilter = ()=>{
-        let suppliers = {
-            amount:0,
-            data:[]
+    returnParams = (  )=>{
+        const params = {
+            page :this.state.params.page
         };
-        if( this.state.useFilter ){
-            this.props.suppliers.data.map(el =>{
-                if( el.supplierType._id  === this.state.filterValue ){
-                    suppliers.amount++;
-                    suppliers.data.push( el )
-                }
-            });
-
-            console.log( suppliers );
-
-            return suppliers;
-
-        } else {
-            return this.props.suppliers
+        if( this.state.params.searchText!=='' ){
+            params.searchText = this.state.params.searchText
         }
 
-    };
+        if( this.state.params.supplierType!=='' ){
+            params.supplierType = this.state.params.supplierType
+        }
+        return params
+    }
+
 
     render() {
-        const suppliers = this.apllyFilter();
+        const suppliers = this.props.suppliers;
         const types = this.props.supplierTypes;
         const items = [
             {label: 'Users'},
@@ -88,6 +102,14 @@ class Suppliers extends Component {
         ];
         return (
             <section className='users__suppliers_section sub_section'>
+                <Dialog className='confirm_popup custom_popup' header="Delete Location"
+                        visible={this.state.deleteSupplierVisible} width="535px" height='485px' modal={true}
+                        onHide={(e) => this.setState({deleteSupplierVisible: false})}>
+                    <div className='label_text'>Are you sure you want to delete this user ?</div>
+                    <button onClick={this.confirmRemoveSupplier}
+                            className='add_location_button location_button'>Delete
+                    </button>
+                </Dialog>
                 <BreadCrumbs>
                     {items}
                 </BreadCrumbs>
@@ -98,25 +120,39 @@ class Suppliers extends Component {
                             <span className='text'>Filter</span>
                             <i className="pi pi-angle-down" onClick={(e) => this.op.toggle(e)}></i>
                             <OverlayPanel className='overlay_filter' ref={(el) => this.op = el}>
-                                <div  className='item' onClick={(e) => {
-                                    this.setState({
-                                        useFilter: false
+                                <div className='item' onClick={async (e) => {
+                                     this.setState({
+                                        useFilter: false,
+                                        params:{
+                                            ...this.state.params,
+                                            supplierType:''
+                                        }
                                     });
                                     this.op.toggle(e);
-                                    this.apllyFilter(  )
+
+                                    const params  = this.returnParams(this.state);
+
+                                    this.props.getSuppliers( params );
 
                                 }}
-                                >none</div>
+                                >none
+                                </div>
                                 {
                                     types.map(el => {
-                                        return <div key={el.id} className='item' onClick={(e) => {
-                                            this.setState({
-                                                filterValue: el._id,
-                                                useFilter: true
+                                        return <div key={el._id} className='item' onClick={async (e) => {
+                                           await  this.setState({
+                                                useFilter: true,
+                                                params:{
+                                                    ...this.state.params,
+                                                    supplierType:el._id,
+
+                                                }
                                             });
                                             this.op.toggle(e);
 
-                                            this.apllyFilter( el._id )
+                                            const params  = this.returnParams();
+
+                                            this.props.getSuppliers( params );
 
                                         }}
                                         >{el.title}</div>
@@ -129,18 +165,48 @@ class Suppliers extends Component {
                     </Label>
                     <div className='search'>
                         <img src={searchIcon} className='search_icon'/>
-                        <input placeholder='Search'></input>
+                        <input value={this.state.params.searchText } onChange={async el=>{
+
+                            await  this.setState({
+                                params:{
+                                    ...this.state.params,
+                                    searchText:el.target.value,
+                                    page:1
+                                }
+                            });
+
+                            const params  = this.returnParams();
+                            this.props.getSuppliers( params );
+
+                        }} placeholder='Search'/>
                     </div>
-                    <DataTable responsive={true} paginator={true} rows={10}
-                               rowsPerPageOptions={[5, 10, 20]} className='custom_table' value={suppliers.data}>
+                    <DataTable className='custom_table' value={suppliers.data}>
                         <Column field="name" header="User Name" sortable={true}/>
-                        <Column className='register_date' field="registerDate" body={this.getDateSell} header="Register Date" sortable={true}/>
+                        <Column className='register_date' field="registerDate" body={this.getDateSell}
+                                header="Register Date" sortable={true}/>
                         <Column field="type" body={this.getTypeSell} header="Type" sortable={true}/>
-                        <Column  field="email" header="Email" sortable={true}/>
+                        <Column field="email" header="Email" sortable={true}/>
                         <Column field="phone" header="Phone" sortable={true}/>
                         <Column field="websiteURL" header="Web Site" sortable={true}/>
                         <Column className='remove_column' body={this.removeSell}/>
                     </DataTable>
+                    <div className='paginator-container'>
+                        <Paginator className='custom_paginator' rows={10} totalRecords={this.props.suppliers.count }
+                                   first={this.state.first}
+                                   onPageChange={async (e) => {
+
+                                       await  this.setState({
+                                           first:
+                                           e.first,
+                                           params:{
+                                               ...this.state.params,
+                                               page:e.page+1
+                                           }
+                                       });
+                                       this.props.getSuppliers( this.returnParams(this.state) )
+                                   }}/>
+                    </div>
+
                 </div>
             </section>
         );
@@ -158,9 +224,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getSuppliers: () => dispatch(actions.getSuppliers()),
+        getSuppliers: (page) => dispatch(actions.getSuppliers(page)),
         initSuppliers: (data) => {
             dispatch(actions.initSuppliers(data))
+        },
+        deleteUser: (id, type) => {
+            dispatch(actions.deleteUser(id, type))
         }
     };
 };

@@ -2,6 +2,9 @@
 export const AUTH_CHECK = 'AUTH_CHECK';
 export const GET_SUPPLIERS = 'GET_SUPPLIERS';
 export const GET_BRIDEGROOM = 'GET_BRIDEGROOM';
+export const DELETE_SUPPLIER = 'DELETE_USER';
+export const DELETE_BRIDE = 'DELETE_BRIDE';
+
 
 export const GET_LOCATIONS = 'GET_LOCATIONS';
 export const EDIT_LOCATIONS = 'EDIT_LOCATIONS';

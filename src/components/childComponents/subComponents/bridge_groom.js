@@ -8,18 +8,26 @@ import {Column} from "primereact/column";
 import deleteIcon from "../../../images/users/ic_delete@3x.png";
 import *  as actions from '../../../store/actions/index'
 import * as moment from "moment";
+import {Paginator} from "primereact/paginator";
+import {Dialog} from "primereact/dialog";
 
 class Bridge_groom extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            amauntBride: 0
+            deleteBride :'',
+            deleteBrideVisible:false,
+            params:{
+                supplierType:'',
+                page:1,
+                searchText:''
+            }
         };
     }
 
     componentDidMount() {
-       this.props.getBrideGroom();
+       this.props.getBrideGroom({page:1});
     }
 
     componentWillUnmount() {
@@ -30,7 +38,10 @@ class Bridge_groom extends Component {
     }
 
     handleRemove = (el, event) => {
-        console.log(el)
+        this.setState({
+            deleteBride :el._id ,
+            deleteBrideVisible:true,
+        })
     };
     removeSell = (rowData, column) => {
         return (
@@ -49,6 +60,31 @@ class Bridge_groom extends Component {
         const date =  moment( rowData.weddingDate  ).format('d.mm.Y');
         return <div>{  date } </div>
     };
+
+    confirmRemoveBride = ()=>{
+        this.props.deleteUser(this.state.deleteBride , 'bride');
+        this.setState({
+            deleteBrideVisible:false
+        })
+    };
+
+
+    returnParams = (  )=>{
+        const params = {
+            page :this.state.params.page
+        };
+        if( this.state.params.searchText!=='' ){
+            params.searchText = this.state.params.searchText
+        }
+
+        if( this.state.params.supplierType!=='' ){
+            params.supplierType = this.state.params.supplierType
+        }
+        return params
+    }
+
+
+
     render() {
         const items = [
             {label: 'Users'},
@@ -58,6 +94,14 @@ class Bridge_groom extends Component {
         const amount  = this.props.bridegroom.amount;
         return (
             <section className='users__bridge-section sub_section'>
+                <Dialog className='confirm_popup custom_popup' header="Delete Location"
+                        visible={this.state.deleteBrideVisible} width="535px" height='485px' modal={true}
+                        onHide={(e) => this.setState({deleteBrideVisible: false})}>
+                    <div className='label_text'>Are you sure you want to delete this user ?</div>
+                    <button onClick={this.confirmRemoveBride}
+                            className='add_location_button location_button'>Delete
+                    </button>
+                </Dialog>
                 <BreadCrumbs>
                     {items}
                 </BreadCrumbs>
@@ -65,10 +109,24 @@ class Bridge_groom extends Component {
                     <Label count={amount}/>
                     <div className='search'>
                         <img src={searchIcon} className='search_icon'/>
-                        <input placeholder='Search'></input>
+                        <input value={this.state.params.searchText } onChange={async el=>{
+
+                            await  this.setState({
+                                params:{
+                                    ...this.state.params,
+                                    searchText:el.target.value,
+                                    page:1
+                                }
+                            });
+
+                            const params  = this.returnParams();
+
+                            this.props.getBrideGroom( params );
+
+
+                        }}  placeholder='Search'/>
                     </div>
-                    <DataTable paginator={true}  rows={10}
-                               rowsPerPageOptions={[5, 10, 20]} className='custom_table' value={data}>
+                    <DataTable  className='custom_table' value={data}>
                         <Column field="name" header="User Name" sortable={true}/>
                         <Column field="registerDate" body={this.getDateRegisterSell} header="Register Date" sortable={true}/>
                         <Column field="email" header="Email" sortable={true}/>
@@ -76,6 +134,22 @@ class Bridge_groom extends Component {
                         <Column field="weddingVenue" header="Weeding Venue" sortable={true}/>
                         <Column className='remove_column' body={this.removeSell}/>
                     </DataTable>
+                    <Paginator className='custom_paginator'  rows={10} totalRecords={this.props.bridegroom.count }
+                               first={this.state.first}
+                               onPageChange={async (e) => {
+
+                                   await  this.setState({
+                                       first:
+                                       e.first,
+                                       params:{
+                                           ...this.state.params,
+                                           page:e.page+1
+                                       }
+                                   });
+
+                                   const params  = this.returnParams();
+                                   this.props.getBrideGroom(params);
+                               }}/>
                 </div>
             </section>
         );
@@ -91,14 +165,17 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getBrideGroom:  () => {
-            dispatch(actions.getBrideGroom())
+        getBrideGroom:  ( params ) => {
+            dispatch(actions.getBrideGroom(params))
         },
         getSuppliers:()=>{
             dispatch(actions.getSuppliers())
         },
         initBrideGroom:(data)=>{
             dispatch(actions.initBrideGroom(data ))
+        },
+        deleteUser: (id, type) => {
+            dispatch(actions.deleteUser(id, type))
         }
     };
 };

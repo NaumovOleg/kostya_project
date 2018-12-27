@@ -9,15 +9,22 @@ export const initBrideGroom = (bride) => {
     };
 };
 
-export const getBrideGroom = () => dispatch => {
-    return request({
-        url: `/cms/users/bridegroom`,
-        method: 'get',
-    }).then(res => {
+export const removeSupplier =( id )=>{
+    return {
+        type: actionTypes.DELETE_BRIDE,
+        id
+    };
+};
+
+export const getBrideGroom = (params) => dispatch => {
+    return request.get(
+        `/cms/users/bridegroom`,
+        {params}
+    ).then(res => {
         const response = res.data;
         if (response.success) {
             const bride = response.data.users;
-            dispatch(initBrideGroom({data:bride, amount:response.data.amount}));
+            dispatch(initBrideGroom({ count:res.data.data.queryResultCount , data: bride, amount: response.data.amount}));
         }
 
     }).catch(error => {
