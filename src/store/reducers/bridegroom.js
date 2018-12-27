@@ -6,9 +6,9 @@ const initialState = {
     count: 0
 };
 
-const reducer = (state = initialState, action) => {
+const reducer = ( state = initialState, action ) => {
 
-    switch (action.type) {
+    switch ( action.type ) {
         case actionTypes.GET_BRIDEGROOM:
             return {
                 ...state,
@@ -17,13 +17,13 @@ const reducer = (state = initialState, action) => {
         case actionTypes.DELETE_BRIDE:
             const id = action.id;
             let removedIndex = -1;
-            state.data.forEach((el, ind) => {
-                if (el._id === id) {
+            state.data.forEach( ( el, ind ) => {
+                if ( el._id === id ) {
                     removedIndex = ind
                 }
-            });
-            if (removedIndex > -1) {
-                state.data.splice(removedIndex, 1);
+            } );
+            if ( removedIndex > -1 ) {
+                state.data.splice( removedIndex, 1 );
                 state.amount--;
             }
             return {

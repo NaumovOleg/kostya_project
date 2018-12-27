@@ -37,18 +37,6 @@ export const getSuppliers = (params) => dispatch => {
     });
 };
 
-export const deleteSuppliersType = ( data ) => dispatch => {
-    return request({
-        url: `/cms/supplier/types`,
-        method: 'delete',
-        data,
-    }).then(res => {
-        const response = res.data;
-
-
-    }).catch(error => {
-    });
-};
 
 export const putSuppliersType = (data) => dispatch => {
     return request({

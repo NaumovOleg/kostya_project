@@ -1,36 +1,60 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BreadCrumbs from "./helpers/breadCrumbs";
+import * as actions from '../../store/actions/index'
 
 class Notifications extends Component {
 
-    constructor ( props ) {
-        super ( props );
-        this.state = {};
+    constructor( props ) {
+        super( props );
+        this.state = {
+            message: '',
+            sendTo: 0
+        };
     }
-    componentWillMount () {}
-    render () {
+
+    componentWillMount() {}
+
+    sendMail = () => {
+        if ( this.state.message !== '' ) {
+            this.props.pushNotification( this.state )
+        }
+
+        this.setState( {
+            message: '',
+            sendTo: 0
+        } )
+
+    };
+
+    render() {
         const items = [
-            {label:'Push Notification'},
+            { label: 'Push Notification' },
         ];
 
         return (
             <section className='notifications_section'>
-                <BreadCrumbs  >
-                    {items}
+                <BreadCrumbs>
+                    { items }
                 </BreadCrumbs>
                 <div className='push_notifications--container'>
-                    <textarea className='text_area'></textarea>
+                    <textarea value={ this.state.message } onChange={ el => {
+                        this.setState( {
+                            message: el.target.value
+                        } )
+                    } } className='text_area'/>
                     <div className='send_container'>
                         <span className='label'>Send to</span>
-                        <select>
-                            <option value="volvo">All USers</option>
-                            <option value="saab">Only to suppliers</option>
-                            <option value="mercedes">Only to bride/grooms</option>
-                            <option value="audi">None</option>
+                        <select value={ this.state.sendTo } onChange={ el => {
+                            this.setState( {
+                                sendTo: el.target.value
+                            } )
+                        } }>
+                            <option value="0">All USers</option>
+                            <option value="1">Only to suppliers</option>
+                            <option value="2">Only to bride/grooms</option>
                         </select>
-                        <button className='send_notification_button'>Send</button>
-
+                        <button onClick={ this.sendMail } className='send_notification_button'>Send</button>
                     </div>
                 </div>
             </section>
@@ -47,8 +71,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        pushNotification: ( data ) => {
+            dispatch( actions.pushNotification( data ) )
+        }
 
     };
 };
 
-export default connect ( mapStateToProps, mapDispatchToProps ) ( Notifications ) ;
+export default connect( mapStateToProps, mapDispatchToProps )( Notifications );

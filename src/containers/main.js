@@ -3,28 +3,28 @@ import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import RootConatiner from './main/rootConatiner'
 
-
 class Main extends Component {
 
-    constructor ( props ) {
-        super ( props );
-        this.state = {
-        };
+    constructor( props ) {
+        super( props );
+        this.state = {};
     }
-    render () {
+
+    render() {
         const routes = (
             <Switch>
-                <Route path="/" component={RootConatiner}/>
+                <Route path="/" component={ RootConatiner }/>
                 <Redirect to="/"/>
             </Switch>
         );
         return (
             <div>
-                {routes}
+                { routes }
             </div>
         );
     }
 }
+
 const mapStateToProps = state => {
     return {
         ...state
@@ -33,4 +33,4 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {};
 };
-export default withRouter ( connect ( mapStateToProps, mapDispatchToProps ) ( Main ) );
+export default withRouter( connect( mapStateToProps, mapDispatchToProps )( Main ) );

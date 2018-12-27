@@ -1,18 +1,10 @@
 import * as actionTypes from './actionTypes';
 import {request} from '../actions/axios'
 
-
 export const initBrideGroom = (bride) => {
     return {
         type: actionTypes.GET_BRIDEGROOM,
         bride
-    };
-};
-
-export const removeSupplier =( id )=>{
-    return {
-        type: actionTypes.DELETE_BRIDE,
-        id
     };
 };
 

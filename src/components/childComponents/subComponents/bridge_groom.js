@@ -13,8 +13,8 @@ import {Dialog} from "primereact/dialog";
 
 class Bridge_groom extends Component {
 
-    constructor(props) {
-        super(props);
+    constructor( props ) {
+        super( props );
         this.state = {
             deleteBride :'',
             deleteBrideVisible:false,
@@ -26,49 +26,44 @@ class Bridge_groom extends Component {
         };
     }
 
-    componentDidMount() {
-       this.props.getBrideGroom({page:1});
+    componentDidMount( ) {
+       this.props.getBrideGroom({ page:1 } );
     }
 
-    componentWillUnmount() {
+    componentWillUnmount( ) {
         this.props.initBrideGroom({
             data:[],
             amount:0
         })
     }
 
-    handleRemove = (el, event) => {
+    handleRemove = ( el, event ) => {
         this.setState({
             deleteBride :el._id ,
             deleteBrideVisible:true,
         })
     };
-    removeSell = (rowData, column) => {
+    removeSell = ( rowData, column ) => {
         return (
             <div className='remove_icon' onClick={this.handleRemove.bind(null, rowData)}>
                 <img src={deleteIcon}/>
             </div>
         )
     };
-
-    getDateRegisterSell=(rowData )=>{
+    getDateRegisterSell=( rowData )=>{
         const date =  moment( rowData.registerDate  ).format('d.mm.Y');
         return <div>{  date } </div>
     };
-
-    getDateWeedingSell=(rowData )=>{
+    getDateWeedingSell=( rowData )=>{
         const date =  moment( rowData.weddingDate  ).format('d.mm.Y');
         return <div>{  date } </div>
     };
-
     confirmRemoveBride = ()=>{
         this.props.deleteUser(this.state.deleteBride , 'bride');
         this.setState({
             deleteBrideVisible:false
         })
     };
-
-
     returnParams = (  )=>{
         const params = {
             page :this.state.params.page
@@ -81,22 +76,20 @@ class Bridge_groom extends Component {
             params.supplierType = this.state.params.supplierType
         }
         return params
-    }
-
-
-
+    };
     render() {
         const items = [
             {label: 'Users'},
             {label: 'Bride & Groom'},
         ];
+        const PagesCount = Math.floor(this.props.bridegroom.count / 10) + 1;
         const data = this.props.bridegroom.data;
         const amount  = this.props.bridegroom.amount;
         return (
             <section className='users__bridge-section sub_section'>
                 <Dialog className='confirm_popup custom_popup' header="Delete Location"
-                        visible={this.state.deleteBrideVisible} width="535px" height='485px' modal={true}
-                        onHide={(e) => this.setState({deleteBrideVisible: false})}>
+                        visible={ this.state.deleteBrideVisible } width="535px" height='auto' modal={true}
+                        onHide={( e ) => this.setState({deleteBrideVisible: false})}>
                     <div className='label_text'>Are you sure you want to delete this user ?</div>
                     <button onClick={this.confirmRemoveBride}
                             className='add_location_button location_button'>Delete
@@ -108,8 +101,8 @@ class Bridge_groom extends Component {
                 <div className="bride_container column_container flex-start">
                     <Label count={amount}/>
                     <div className='search'>
-                        <img src={searchIcon} className='search_icon'/>
-                        <input value={this.state.params.searchText } onChange={async el=>{
+                        <img src={ searchIcon } className='search_icon'/>
+                        <input value={ this.state.params.searchText } onChange={ async el => {
 
                             await  this.setState({
                                 params:{
@@ -118,12 +111,8 @@ class Bridge_groom extends Component {
                                     page:1
                                 }
                             });
-
                             const params  = this.returnParams();
-
                             this.props.getBrideGroom( params );
-
-
                         }}  placeholder='Search'/>
                     </div>
                     <DataTable  className='custom_table' value={data}>
@@ -134,22 +123,38 @@ class Bridge_groom extends Component {
                         <Column field="weddingVenue" header="Weeding Venue" sortable={true}/>
                         <Column className='remove_column' body={this.removeSell}/>
                     </DataTable>
-                    <Paginator className='custom_paginator'  rows={10} totalRecords={this.props.bridegroom.count }
-                               first={this.state.first}
-                               onPageChange={async (e) => {
-
-                                   await  this.setState({
-                                       first:
-                                       e.first,
-                                       params:{
-                                           ...this.state.params,
-                                           page:e.page+1
-                                       }
-                                   });
-
-                                   const params  = this.returnParams();
-                                   this.props.getBrideGroom(params);
-                               }}/>
+                    <div className='paginator-container'>
+                        <Paginator className='custom_paginator' rows={ 10 } totalRecords={ this.props.bridegroom.count }
+                                   first={ this.state.first }
+                                   onPageChange={ async ( e ) => {
+                                       await this.setState({
+                                           first:
+                                           e.first,
+                                           params: {
+                                               ...this.state.params,
+                                               page: e.page + 1
+                                           }
+                                       });
+                                       this.props.getBrideGroom( this.returnParams( this.state ) )
+                                   }}/>
+                        <div className='right-paginator'>
+                            <div className='text'>Go to page</div>
+                            <input onChange={async el => {
+                                if ( el.target.value !== '' && el.target.value  <= PagesCount ) {
+                                    await this.setState({
+                                        params:{
+                                            ...this.state.params,
+                                            page:el.target.value
+                                        },
+                                        first:( el.target.value-1 )*10
+                                    });
+                                }
+                                const params  = this.returnParams();
+                                this.props.getBrideGroom( params )
+                            }} value={ this.state.params.page }/>
+                            <div className='for_text'>for { PagesCount }</div>
+                        </div>
+                    </div>
                 </div>
             </section>
         );
@@ -166,18 +171,15 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getBrideGroom:  ( params ) => {
-            dispatch(actions.getBrideGroom(params))
+            dispatch(actions.getBrideGroom( params ) )
         },
-        getSuppliers:()=>{
-            dispatch(actions.getSuppliers())
+        initBrideGroom:( data )=>{
+            dispatch(actions.initBrideGroom( data ) )
         },
-        initBrideGroom:(data)=>{
-            dispatch(actions.initBrideGroom(data ))
-        },
-        deleteUser: (id, type) => {
-            dispatch(actions.deleteUser(id, type))
+        deleteUser: ( id, type ) => {
+            dispatch(actions.deleteUser( id, type ) )
         }
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Bridge_groom);
+export default connect( mapStateToProps, mapDispatchToProps )( Bridge_groom );

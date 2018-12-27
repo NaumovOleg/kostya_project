@@ -1,7 +1,6 @@
-import React, {Component} from 'react';
-import {withRouter, NavLink} from 'react-router-dom';
-
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { withRouter, NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import logo from '../images/Logo@3x.png'
 import userIcon from '../images/navigation_bar/ic_user@3x.png';
 import locationIcon from '../images/navigation_bar/ic_location@3x.png';
@@ -11,16 +10,14 @@ import notificationsIcon from '../images/navigation_bar/ic_pushNotification@3x.p
 class NavigationBar extends Component {
 
 
-    componentDidMount() {
-
-    }
+    componentDidMount() {}
 
     render() {
 
         return (
             <section className='naivigation-bar'>
                 <div className="nav_header">
-                    <img src={logo} className="logo"/>
+                    <img src={ logo } className="logo"/>
                     <div className="logo_menu">
                         <i className="pi pi-bars"></i>
                     </div>
@@ -32,7 +29,7 @@ class NavigationBar extends Component {
                                      to="/users">
                                 <div className='main_link'>
                                     <div className="icon">
-                                        <img src={userIcon}/>
+                                        <img src={ userIcon }/>
                                     </div>
                                     <div className="dropdown">
                                         <div className="text">
@@ -63,7 +60,7 @@ class NavigationBar extends Component {
                             <NavLink className="header-navigation-menu" activeClassName="header-navigation__selected"
                                      to="/locations">
                                 <div className="icon">
-                                    <img src={locationIcon}/>
+                                    <img src={ locationIcon }/>
                                 </div>
                                 <div className="text">Locations</div>
                             </NavLink>
@@ -72,7 +69,7 @@ class NavigationBar extends Component {
                             <NavLink className="header-navigation-menu" activeClassName="header-navigation__selected"
                                      to="/suppliers">
                                 <div className="icon">
-                                    <img src={suppliersIcon}/>
+                                    <img src={ suppliersIcon }/>
                                 </div>
                                 <div className="text">Supplier Type</div>
                             </NavLink>
@@ -81,7 +78,7 @@ class NavigationBar extends Component {
                             <NavLink className="header-navigation-menu" activeClassName="header-navigation__selected"
                                      to="/notifications">
                                 <div className="icon">
-                                    <img src={notificationsIcon}/>
+                                    <img src={ notificationsIcon }/>
                                 </div>
                                 <div className="text">Push Notifications</div>
                             </NavLink>
@@ -102,4 +99,4 @@ const mapDispatchToProps = dispatch => {
     return {};
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavigationBar));
+export default withRouter( connect( mapStateToProps, mapDispatchToProps )( NavigationBar ) );

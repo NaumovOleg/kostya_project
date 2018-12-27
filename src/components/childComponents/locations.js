@@ -45,7 +45,7 @@ class Locations extends Component {
         this.props.initLocations();
     }
 
-    handleRemove = (el, event) => {
+    handleRemove = ( el ) => {
         this.setState({
             ...this.state,
             deleteLocationVisible: true,
@@ -82,7 +82,6 @@ class Locations extends Component {
 
     };
     confirmRemoveLocation = () => {
-
         this.setState({
             deleteLocationVisible: false,
         });
@@ -97,14 +96,12 @@ class Locations extends Component {
         });
         this.props.addNewLocations(this.state.newLocation)
     };
-
     getlatitudeSell = (rowData) => {
         return <div>{rowData.location.lat}</div>
     };
     getlongitudeSell = (rowData) => {
         return <div>{rowData.location.lng}</div>
     };
-
     render() {
         const items = [
             {label: 'Locations'},
@@ -113,7 +110,7 @@ class Locations extends Component {
         return (
             <section className='location_section'>
                 <Dialog className='confirm_popup custom_popup' header="Delete Location"
-                        visible={this.state.deleteLocationVisible} width="535px" height='485px' modal={true}
+                        visible={this.state.deleteLocationVisible} width="535px" height='auto' modal={true}
                         onHide={(e) => this.setState({deleteLocationVisible: false})}>
                     <div className='label_text'>Are you sure you want to delete this location?</div>
                     <button onClick={this.confirmRemoveLocation}
@@ -125,7 +122,6 @@ class Locations extends Component {
                         onHide={(e) => this.setState({addLocationvisible: false})}>
                     <div className='label_text'>Fill in the data below</div>
                     <input value={this.state.newLocation.title} onChange={(el) => {
-
                         this.setState({
                             newLocation: {
                                 ...this.state.newLocation,
@@ -135,7 +131,6 @@ class Locations extends Component {
 
                     }} placeholder='Location Name'/>
                     <input onChange={(el) => {
-
                         this.setState({
                             newLocation: {
                                 ...this.state.newLocation,
@@ -147,7 +142,6 @@ class Locations extends Component {
                         })
                     }} value={this.state.newLocation.location.lat} placeholder='Latitude'/>
                     <input onChange={(el) => {
-
                         this.setState({
                             newLocation: {
                                 ...this.state.newLocation,
@@ -184,7 +178,6 @@ class Locations extends Component {
                                     ...this.state.editableLocation.location,
                                     lat: el.target.value
                                 }
-
                             }
                         })
                     }} value={this.state.editableLocation.location.lat} placeholder='Latitude'/>
@@ -200,9 +193,7 @@ class Locations extends Component {
                             }
                         })
                     }} value={this.state.editableLocation.location.lng} placeholder='Longtitude'/>
-                    <button onClick={
-                       this.confirmSaveEditedLocation
-                    }
+                    <button onClick={ this.confirmSaveEditedLocation }
                             className='add_location_button location_button'>Saves
                     </button>
                 </Dialog>
@@ -212,12 +203,12 @@ class Locations extends Component {
                 <div className='location_container'>
                     <button onClick={(e) => this.setState({addLocationvisible: true})}
                             className='add_location_button open_popup_buttomn'>
-                        <img className='plus_image' src={plusIcon}></img>
+                        <img className='plus_image' src={plusIcon}/>
                         <span className='text'>Add New Location</span>.
                     </button>
                     <div className='search'>
                         <img src={searchIcon} className='search_icon'/>
-                        <input placeholder='Search'></input>
+                        <input placeholder='Search'/>
                     </div>
                     <DataTable  className='custom_table' value={data}>
                         <Column field="title" header="Name" sortable={true}/>

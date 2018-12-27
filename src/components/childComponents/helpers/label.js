@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import userLabel from '../../../images/users/ic_amountUsers@3x.png'
 
-
 class Label extends Component {
     render() {
         return (

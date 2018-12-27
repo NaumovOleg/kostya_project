@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {BreadCrumb} from 'primereact/breadcrumb';
 
 class BreadCrumbs extends Component {
-
-
     render() {
 
         return (

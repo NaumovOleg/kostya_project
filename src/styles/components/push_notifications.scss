@@ -49,6 +49,7 @@
       border: 0;
       border-radius: 5px;
       outline: none;
+      border:none;
 
       option {
         outline: none;
@@ -64,8 +65,13 @@
       }
 
     }
+    select * {
+      border:0px;
+      outline:0px;
+    }
 
     .send_notification_button {
+      cursor: pointer;
       border: none;
       margin-top: 130px;
       outline: none;
