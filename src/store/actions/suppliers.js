@@ -55,10 +55,8 @@ export const deleteUser = ( data , type ) => dispatch => {
     const params = {
         _id: data
     };
-
     switch (type) {
         case 'supplier':{
-            console.log( type );
             dispatch(removeSupplier( data ));
             break
         }
@@ -77,7 +75,6 @@ export const deleteUser = ( data , type ) => dispatch => {
         if( res.data.success ){
             switch (type) {
                 case 'supplier':{
-                    console.log( type );
                     dispatch(removeSupplier( data ));
                     break
                 }

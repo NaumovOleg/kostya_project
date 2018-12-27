@@ -122,7 +122,7 @@ class Suppliers extends Component {
                             <i className="pi pi-angle-down" onClick={ ( e ) => this.op.toggle( e ) }></i>
                             <OverlayPanel className='overlay_filter' ref={ ( el ) => this.op = el }>
                                 <div className='item' onClick={ async ( e ) => {
-                                    this.setState( {
+                                   await this.setState( {
                                         useFilter: false,
                                         params: {
                                             ...this.state.params,
@@ -130,7 +130,7 @@ class Suppliers extends Component {
                                         }
                                     } );
                                     this.op.toggle( e );
-                                    const params = this.returnParams( this.state );
+                                    const params = this.returnParams(  );
                                     this.props.getSuppliers( params );
                                 } }
                                 >none

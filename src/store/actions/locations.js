@@ -31,7 +31,6 @@ export const getLocations = () => dispatch => {
     } ).then( res => {
         if ( res.data.success ) {
             const locations = res.data.data;
-            console.log( locations );
             dispatch( initLocations( locations ) )
         }
     } ).catch( error => {
