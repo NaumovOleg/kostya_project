@@ -2,37 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c94bafe-f5ed-4f25-a546-c8b7945e346a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavigationBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavigationBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/childComponents/helpers/breadCrumbs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/childComponents/helpers/breadCrumbs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/childComponents/helpers/label.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/childComponents/helpers/label.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/childComponents/locations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/childComponents/locations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/childComponents/push_notifications.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/childComponents/push_notifications.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/childComponents/subComponents/bridge_groom.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/childComponents/subComponents/bridge_groom.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/childComponents/subComponents/supliers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/childComponents/subComponents/supliers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/childComponents/suppliers_types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/childComponents/suppliers_types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/childComponents/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/childComponents/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/main/rootConatiner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/main/rootConatiner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/actionTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/axios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/bridegroom.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/bridegroom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/locations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/locations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/suppliers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/suppliers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/suppliersType.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/suppliersType.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/bridegroom.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/bridegroom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/locations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/locations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/suppliersTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/suppliersTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/components/push_notifications.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/push_notifications.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/helpers/paginator.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/helpers/paginator.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/index.scss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -45,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/childComponents/subComponents/bridge_groom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="90" column="80" lean-forward="true" selection-start-line="90" selection-start-column="80" selection-end-line="90" selection-end-column="93" />
+            <state relative-caret-position="165">
+              <caret line="107" column="41" selection-start-line="107" selection-start-column="41" selection-end-line="107" selection-end-column="41" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -60,8 +31,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/childComponents/subComponents/supliers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="106" column="96" selection-start-line="106" selection-start-column="96" selection-end-line="106" selection-end-column="96" />
+            <state relative-caret-position="240">
+              <caret line="167" column="34" selection-start-line="167" selection-start-column="34" selection-end-line="167" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -90,10 +61,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/childComponents/suppliers_types.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
+            <state relative-caret-position="-495">
               <caret line="91" column="88" selection-start-line="91" selection-start-column="88" selection-end-line="91" selection-end-column="88" />
             </state>
           </provider>
@@ -175,10 +146,10 @@
         <option value="$PROJECT_DIR$/src/store/reducers/bridegroom.js" />
         <option value="$PROJECT_DIR$/src/store/reducers/locations.js" />
         <option value="$PROJECT_DIR$/src/store/reducers/suppliersTypes.js" />
-        <option value="$PROJECT_DIR$/src/components/childComponents/subComponents/bridge_groom.js" />
-        <option value="$PROJECT_DIR$/src/components/childComponents/subComponents/supliers.js" />
         <option value="$PROJECT_DIR$/src/components/childComponents/locations.js" />
         <option value="$PROJECT_DIR$/src/components/childComponents/suppliers_types.js" />
+        <option value="$PROJECT_DIR$/src/components/childComponents/subComponents/supliers.js" />
+        <option value="$PROJECT_DIR$/src/components/childComponents/subComponents/bridge_groom.js" />
       </list>
     </option>
   </component>
@@ -356,12 +327,12 @@
       <workItem from="1545826872274" duration="363000" />
       <workItem from="1545829420759" duration="338000" />
       <workItem from="1545829960320" duration="546000" />
-      <workItem from="1545896172729" duration="22053000" />
+      <workItem from="1545896172729" duration="22493000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105243000" />
+    <option name="totallyTimeSpent" value="105683000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1044" extended-state="6" />
@@ -653,23 +624,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/childComponents/subComponents/bridge_groom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="90" column="80" lean-forward="true" selection-start-line="90" selection-start-column="80" selection-end-line="90" selection-end-column="93" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/childComponents/subComponents/supliers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="106" column="96" selection-start-line="106" selection-start-column="96" selection-end-line="106" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/childComponents/locations.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -692,8 +646,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/childComponents/suppliers_types.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
+        <state relative-caret-position="-495">
           <caret line="91" column="88" selection-start-line="91" selection-start-column="88" selection-end-line="91" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/childComponents/subComponents/supliers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="167" column="34" selection-start-line="167" selection-start-column="34" selection-end-line="167" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/childComponents/subComponents/bridge_groom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="107" column="41" selection-start-line="107" selection-start-column="41" selection-end-line="107" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

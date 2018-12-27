@@ -165,7 +165,8 @@ class Suppliers extends Component {
                                     ...this.state.params,
                                     searchText: el.target.value,
                                     page: 1
-                                }
+                                },
+                                first: 0
                             } );
                             const params = this.returnParams();
                             this.props.getSuppliers( params );

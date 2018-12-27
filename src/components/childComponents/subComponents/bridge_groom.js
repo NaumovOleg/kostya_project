@@ -103,12 +103,13 @@ class Bridge_groom extends Component {
                     <div className='search'>
                         <img src={ searchIcon } className='search_icon'/>
                         <input value={ this.state.params.searchText } onChange={ async el => {
-
                             await  this.setState({
+                                first: 0,
                                 params:{
                                     ...this.state.params,
                                     searchText:el.target.value,
-                                    page:1
+                                    page:1,
+
                                 }
                             });
                             const params  = this.returnParams();
