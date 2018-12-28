@@ -136,7 +136,7 @@ class SuppliersTypes extends Component {
                     <button onClick={ ( e ) => this.setState( { addNewTypeVisible: true } ) }
                             className='add_location_button open_popup_buttomn'>
                         <img className='plus_image' src={ plusIcon }></img>
-                        <span className='text'>Add New Type</span>.
+                        <span className='text'>Add New Type</span>
                     </button>
 
                     <div className='search'>

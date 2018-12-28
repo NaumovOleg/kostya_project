@@ -18,6 +18,7 @@ class Bridge_groom extends Component {
         this.state = {
             deleteBride :'',
             deleteBrideVisible:false,
+            goToPage:1,
             params:{
                 supplierType:'',
                 page:1,
@@ -129,8 +130,8 @@ class Bridge_groom extends Component {
                                    first={ this.state.first }
                                    onPageChange={ async ( e ) => {
                                        await this.setState({
-                                           first:
-                                           e.first,
+                                           first:e.first,
+                                           goToPage:e.page + 1,
                                            params: {
                                                ...this.state.params,
                                                page: e.page + 1
@@ -141,18 +142,25 @@ class Bridge_groom extends Component {
                         <div className='right-paginator'>
                             <div className='text'>Go to page</div>
                             <input onChange={async el => {
-                                if ( el.target.value !== '' && el.target.value  <= PagesCount ) {
+
+                                let value  = el.target.value ;
+                                await this.setState({
+                                    goToPage:value
+                                });
+
+
+                                if ( this.state.goToPage !== '' && value  <= PagesCount ) {
                                     await this.setState({
                                         params:{
                                             ...this.state.params,
-                                            page:el.target.value
+                                            page:value
                                         },
-                                        first:( el.target.value-1 )*10
+                                        first:( value-1 )*10
                                     });
                                 }
                                 const params  = this.returnParams();
                                 this.props.getBrideGroom( params )
-                            }} value={ this.state.params.page }/>
+                            }} value={ this.state.goToPage }/>
                             <div className='for_text'>for { PagesCount }</div>
                         </div>
                     </div>

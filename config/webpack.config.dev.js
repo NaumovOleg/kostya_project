@@ -123,7 +123,9 @@ module.exports = {
               loader: require.resolve('css-loader'),
               options: {
                 importLoaders: 1,
+                minimize: false
               }
+
             },
             {
               loader: require.resolve('sass-loader'),
@@ -180,6 +182,7 @@ module.exports = {
                 loader: require.resolve('css-loader'),
                 options: {
                   importLoaders: 1,
+                  minimize: false
                 }
               },
               {

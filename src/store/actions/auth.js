@@ -26,8 +26,8 @@ export const login = ( data ) => dispatch => {
         } else {
             throw new Error( 'Authentification failed ' )
         }
-    } ).catch( error => {
-        return error
+    } ).catch( (error) => {
+        return {error:true,message:{...error.response.data.error}}
     } );
 };
 

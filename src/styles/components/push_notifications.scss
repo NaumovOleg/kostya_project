@@ -12,7 +12,7 @@
     font-stretch: normal;
     line-height: 1.69;
     letter-spacing: -0.3px;
-    color: rgba(63, 67, 71, 0.5);
+    color: $textColor;
   }
 
   .send_container {
@@ -73,7 +73,7 @@
     .send_notification_button {
       cursor: pointer;
       border: none;
-      margin-top: 130px;
+      margin-top: 80px;
       outline: none;
       width: 347px;
       height: 60px;

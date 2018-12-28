@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-axios.baseURL = 'https://serene-waters-78929.herokuapp.com';
+axios.baseURL = '/';
 
 const request = axios.create( {
-    baseURL: 'https://serene-waters-78929.herokuapp.com',
+    baseURL: '/',
     headers: {
         'Access-Control-Allow-Origin': 'https://serene-waters-78929.herokuapp.com',
         'Access-Control-Allow-Methods': '*',

@@ -9,7 +9,8 @@ import deleteIcon from "../../images/users/ic_delete@3x.png";
 import editIcon from '../../images/common/ic_edit@3x.png'
 import {Dialog} from 'primereact/dialog';
 import * as actions from "../../store/actions";
-
+import { Paginator } from "primereact/paginator";
+import {InputText} from 'primereact/inputtext';
 class Locations extends Component {
 
     constructor(props) {
@@ -33,6 +34,9 @@ class Locations extends Component {
                     "lat": "",
                     "lng": ""
                 },
+            },
+            params:{
+                page:1
             }
         };
     }
@@ -107,6 +111,7 @@ class Locations extends Component {
             {label: 'Locations'},
         ];
         const data = this.props.locations;
+
         return (
             <section className='location_section'>
                 <Dialog className='confirm_popup custom_popup' header="Delete Location"
@@ -121,7 +126,7 @@ class Locations extends Component {
                         visible={this.state.addLocationvisible} width="535px" height='485px' modal={true}
                         onHide={(e) => this.setState({addLocationvisible: false})}>
                     <div className='label_text'>Fill in the data below</div>
-                    <input value={this.state.newLocation.title} onChange={(el) => {
+                    <InputText value={this.state.newLocation.title} onChange={(el) => {
                         this.setState({
                             newLocation: {
                                 ...this.state.newLocation,
@@ -129,8 +134,8 @@ class Locations extends Component {
                             }
                         })
 
-                    }} placeholder='Location Name'/>
-                    <input onChange={(el) => {
+                    }} placeholder='Location Name '/>
+                    <InputText onChange={(el) => {
                         this.setState({
                             newLocation: {
                                 ...this.state.newLocation,
@@ -141,7 +146,7 @@ class Locations extends Component {
                             }
                         })
                     }} value={this.state.newLocation.location.lat} placeholder='Latitude'/>
-                    <input onChange={(el) => {
+                    <InputText onChange={(el) => {
                         this.setState({
                             newLocation: {
                                 ...this.state.newLocation,
@@ -194,7 +199,7 @@ class Locations extends Component {
                         })
                     }} value={this.state.editableLocation.location.lng} placeholder='Longtitude'/>
                     <button onClick={ this.confirmSaveEditedLocation }
-                            className='add_location_button location_button'>Saves
+                            className='add_location_button location_button'>Save
                     </button>
                 </Dialog>
                 <BreadCrumbs>
@@ -204,7 +209,7 @@ class Locations extends Component {
                     <button onClick={(e) => this.setState({addLocationvisible: true})}
                             className='add_location_button open_popup_buttomn'>
                         <img className='plus_image' src={plusIcon}/>
-                        <span className='text'>Add New Location</span>.
+                        <span className='text'>Add New Location</span>
                     </button>
                     <div className='search'>
                         <img src={searchIcon} className='search_icon'/>
@@ -217,6 +222,7 @@ class Locations extends Component {
                         <Column className='edit_column' body={this.editSell}/>
                         <Column className='remove_column' body={this.removeSell}/>
                     </DataTable>
+
                 </div>
             </section>
         );

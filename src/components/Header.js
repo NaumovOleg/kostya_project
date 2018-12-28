@@ -7,6 +7,8 @@ import * as actions from '../store/actions/index'
 import { withCookies, Cookies } from 'react-cookie';
 import { instanceOf } from "prop-types";
 
+import downArrow from '../images/common/ic_arrowBottom@3x.png'
+
 class Header extends Component {
     state = {
         iconStyle: ''
@@ -40,7 +42,7 @@ class Header extends Component {
                         } );
                         this.op.toggle( e )
                     } }>
-                        <i className="pi pi-angle-down"></i>
+                        <img style={{width:'8.5px',height:'5px'}} src={downArrow}/>
                     </div>
                 </div>
                 <OverlayPanel className='overlay' ref={ ( el ) => this.op = el }>
