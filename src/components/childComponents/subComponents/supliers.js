@@ -75,7 +75,7 @@ class Suppliers extends Component {
     };
 
     getDateSell = ( rowData ) => {
-        const date = moment( rowData.registerDate ).format( 'd.mm.Y' );
+        const date = moment( rowData.registerDate ).format( 'DD.MM.Y' );
         return <div>{ date } </div>
     };
 
@@ -104,7 +104,7 @@ class Suppliers extends Component {
         ];
         return (
             <section className='users__suppliers_section sub_section'>
-                <Dialog className='confirm_popup custom_popup' header="Delete Location"
+                <Dialog className='confirm_popup custom_popup' header="Delete User"
                         visible={ this.state.deleteSupplierVisible } width="535px" height='auto' modal={ true }
                         onHide={ ( e ) => this.setState( { deleteSupplierVisible: false } ) }>
                     <div className='label_text'>Are you sure you want to delete this user ?</div>

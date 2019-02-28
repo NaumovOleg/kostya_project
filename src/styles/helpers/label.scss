@@ -28,8 +28,21 @@
         letter-spacing: -0.3px;
         color: #3f4347;
       }
+      .overlay_filter::-webkit-scrollbar {
+        width: 5px;
+      }
+      .overlay_filter::-webkit-scrollbar-thumb {
+        background: #ee7d68;
+        border-radius: 10px;
+      }
+      .overlay_filter::-webkit-scrollbar-track {
+        border-radius: 10px;
+      }
       .overlay_filter{
         width:150px;
+        height:200px;
+        overflow-y: scroll;
+
         .p-overlaypanel-content{
           height: 100%;
           display: flex;

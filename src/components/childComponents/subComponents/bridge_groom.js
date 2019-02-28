@@ -52,7 +52,7 @@ class Bridge_groom extends Component {
         )
     };
     getDateRegisterSell=( rowData )=>{
-        const date =  moment( rowData.registerDate  ).format('d.mm.Y');
+        const date =  moment( rowData.registerDate  ).format('DD.MM.Y');
         return <div>{  date } </div>
     };
     getDateWeedingSell=( rowData )=>{
@@ -88,7 +88,7 @@ class Bridge_groom extends Component {
         const amount  = this.props.bridegroom.amount;
         return (
             <section className='users__bridge-section sub_section'>
-                <Dialog className='confirm_popup custom_popup' header="Delete Location"
+                <Dialog className='confirm_popup custom_popup' header="Delete User"
                         visible={ this.state.deleteBrideVisible } width="535px" height='auto' modal={true}
                         onHide={( e ) => this.setState({deleteBrideVisible: false})}>
                     <div className='label_text'>Are you sure you want to delete this user ?</div>
@@ -121,8 +121,8 @@ class Bridge_groom extends Component {
                         <Column field="name" header="User Name" sortable={true}/>
                         <Column field="registerDate" body={this.getDateRegisterSell} header="Register Date" sortable={true}/>
                         <Column field="email" header="Email" sortable={true}/>
-                        <Column field="weddingDate" body={this.getDateWeedingSell} header="Weeding Date" sortable={true}/>
-                        <Column field="weddingVenue" header="Weeding Venue" sortable={true}/>
+                        <Column field="weddingDate" body={this.getDateWeedingSell} header="Wedding Date" sortable={true}/>
+                        <Column field="weddingVenue" header="Wedding Venue" sortable={true}/>
                         <Column className='remove_column' body={this.removeSell}/>
                     </DataTable>
                     <div className='paginator-container'>

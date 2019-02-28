@@ -50,9 +50,9 @@ class Notifications extends Component {
                                 sendTo: el.target.value
                             } )
                         } }>
-                            <option value="0">All USers</option>
-                            <option value="1">Only to suppliers</option>
-                            <option value="2">Only to bride/grooms</option>
+                            <option value="0">All Users</option>
+                            <option value="1">Only to Suppliers</option>
+                            <option value="2">Only to Brides/Grooms</option>
                         </select>
                         <button onClick={ this.sendMail } className='send_notification_button'>Send</button>
                     </div>
